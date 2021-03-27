@@ -242,7 +242,8 @@ In the R code chunk below, please do the following:
 
 5. Add the 1:1 line and label.
 
-```{r}
+# This code would not generate a plot even after troubleshooting and updating R, so I had to exclude it
+```{r eval = FALSE, echo = FALSE}
 # Calculate richness for soilbac
 soilbac.S <- S.obs(soilbac.t)
 require("vegan")
@@ -253,11 +254,8 @@ S.rarefy <- rarefy(x = soilbac.t, sample = min.N, se = TRUE)
 # Plot rarefraction results
 plot.new()
 rarecurve(x = soilbac.t, step = 20, col = "blue", cex = 0.6, las = 1)
-# Add line and label
-abline(0, 1, col = "red")
-text(1500, 1500, "1:1", pos = 2, col = "red")
+#PLOT WON"T GENERATE
 ```
-
 
 ##4) SPECIES EVENNESS
 Here, we consider how abundance varies among species, that is, **species evenness**.
