@@ -20,7 +20,7 @@ We will learn about these tools while also gaining exposure to R packages that a
 ```{r, results = 'hide'}
 rm(list=ls()) 
 getwd() 
-setwd("~/GitHub/QB-2021/1.Handouts/7.ControlStructures")
+setwd("C:/Users/Rich Hull/GitHub/QB2021_Hull/2.Worksheets")
 ```
 
 ## 2) SIMULATE BIODIVERSITY 
@@ -131,7 +131,7 @@ This might involve converting your entries from long to wide formats, or subsett
 Or, maybe you want to summarize a data set by applying a function across rows of your matrix. 
 These types of operations are fairly standard when taking classes in programming or computer science, but are less commonly taught in as part of a life-sciences curriculum.
 
-### A. Summarize diversity data with a foor loop
+### A. Summarize diversity data with a for loop
 
 In this section, we will introduce some of the basics of **control structures**.
 Specifically, we will focus on using **for loops**, which have two parts.
@@ -241,15 +241,62 @@ But the SAR is also influenced by biological phenomena including dispersal limit
 Feel free to choose different values for the the function's arguments. 
 Create an SAR plot and calculate the corresponding *z*-value. 
 
+```{r}
+# load package
+require(mobsim)
+# simulate community with `mobsim`
+com1 <- sim_poisson_community(s_pool = 100, n_sim = 10000, sad_type = "lnorm", 
+        sad_coef = list("meanlog" = 2, "sdlog" = 1))
+# Generate species-area relationship data
+com1sarel <- divar(com1, prop_area = seq(0.01, 0.2, by = 0.01), n_samples = 100, exclude_zeros = T)
+# Take log of data
+logdatacom <- data.frame(prop_area= c(0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2), m_species= com1sarel$m_species)
+logdatacom$prop_area <- log(logdatacom$prop_area)
+logdatacom$m_species <- log(com1sarel$m_species)
+# Plot log species area relationship
+plot(logdatacom$prop_area, logdatacom$m_species, main = "Species-Area Relationship (log)", xlab = "Plot Area (proportion of total area, log)", ylab = "Species Richness (S, log)", pch = 16, cex = 1.0, col = "red", xaxt = "n", yaxt = "n", type = "n")
+abline(lm(logdatacom$m_species ~ logdatacom$prop_area))
+lm(logdatacom$m_species ~ logdatacom$prop_area)
+# Z equals slope of log-log transformed data
+# Slope equals 0.1928
+```
+
+
 2. The `sim_poisson_community`function simulates species that have a random spatial distribution.
 However, in nature, this is rarely the case. 
 Species often have patchy distributions, which can be simulated in `mobsim` using the the `sim_thomas_community` function.
 Include a plot of the patchy distribution using examples above.
 Then, create another SAR plot from the patchy community and compare its *z*-values to that of the random distribution. 
 
+```{r}
+# load package
+require(mobsim)
+# simulate community with `mobsim` (patchy)
+com1 <- sim_thomas_community(s_pool = 100, n_sim = 10000, sad_type = "lnorm", 
+        sad_coef = list("meanlog" = 2, "sdlog" = 1))
+# visualize site
+plot(com1)
+# Generate species-area relationship data
+com1sarel <- divar(com1, prop_area = seq(0.01, 0.2, by = 0.01), n_samples = 100, exclude_zeros = T)
+# Take log of data
+logdatacom <- data.frame(prop_area= c(0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2), m_species= com1sarel$m_species)
+logdatacom$prop_area <- log(logdatacom$prop_area)
+logdatacom$m_species <- log(com1sarel$m_species)
+# Plot log species area relationship
+plot(logdatacom$prop_area, logdatacom$m_species, main = "Species-Area Relationship (log)", xlab = "Plot Area (proportion of total area, log)", ylab = "Species Richness (S, log)", pch = 16, cex = 1.0, col = "red", xaxt = "n", yaxt = "n", type = "n")
+abline(lm(logdatacom$m_species ~ logdatacom$prop_area))
+lm(logdatacom$m_species ~ logdatacom$prop_area)
+# Z equals slope of log-log transformed data
+# Slope equals 0.5076
+```
+
+
 3. Explain the SAR patterns from your simulations along with any observed differences based on how we have simulated the communities.
 Are there any features that you might include with a more elaborate simulation? 
 Describe. 
+
+# Answer: 
+# Species richness quickly increases in correspondence to the area covered, but saturates at a fairly low proportion of the total simulation area for both trials. However, it saturates at a larger area proportion for the second trial. This contributes to the Z score being much larger for the second trial than the first trial. One main feature we might include in more elaborate simulations include patchy distributions that are relegated to only specific regions of the simulated area and are therefore not truly random. In reality, occurrences depend on habitat, temperature, etcetera, and are not truly random.
 
 ## SUBMITTING YOUR ASSIGNMENT
 Use Knitr to create a PDF of your completed 7.Wrangling_Worksheet.Rmd document, push it to GitHub, and create a pull request.
