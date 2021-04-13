@@ -41,7 +41,7 @@ rm(list=ls())
 # Print working directory
 getwd()
 # Set working directory to alpha diversity
-setwd("C:/Users/Rich Hull/GitHub/QB2021_Hull/2.Worksheets")
+setwd("C:/Users/Rich Hull/GitHub/QB2021_Hull/2.Worksheets/5.AlphaDiversity")
 ```
 
 ## 2) LOADING DATA
@@ -509,10 +509,39 @@ It is difficult to obtain more parameters, so it is important to quantify how we
 1.  As stated by Magurran (2004) the  ${D = } \sum p_i^2$ derivation of Simpson's Diversity only applies to communities of infinite size. For anything but an infinitely large community, Simpson's Diversity index is calculated as ${D = } \sum \frac{n_i(n_i -1)} {N(N-1)}$. 
 Assuming a finite community, calculate Simpson's D, 1 - D, and Simpson's inverse (i.e. 1/D) for `site 1` of the BCI site-by-species matrix. 
 
+```{r}
+# Define function for calculating simpson's diversity for noninfinite community
+SimpDnoninf <- function(x = ""){
+  D = 0
+  N = sum(x)
+  for (n_i in x){
+    D = D + (n_i*(n_i - 1))/(N*(N - 1))
+  }
+  return(D)
+}
+# Calculate Simpson's D for site1
+site1 <- BCI[1, ]
+print(SimpDnoninf(site1))
+# Define and calculate 1 - D
+OneminusSimpD <- (1 - SimpDnoninf(site1))
+print(OneminusSimpD)
+# Define and calculate inverse D
+OneminusSimpD <- (1 / SimpDnoninf(site1))
+print(OneminusSimpD)
+```
+
 2.  Along with the rank-abundance curve (RAC), another way to visualize the distribution of abundance among species is with a histogram (a.k.a., frequency distribution) that shows the frequency of different abundance classes.
 For example, in a given sample, there may be 10 species represented by a single individual, 8 species with two individuals, 4 species with three individuals, and so on.
 In fact, the rank-abundance curve and the frequency distribution are the two most common ways to visualize the species-abundance distribution (SAD) and to test species abundance models and biodiversity theories.
 To address this homework question, use the R function **hist()** to plot the frequency distribution for `site 1` of the BCI site-by-species matrix, and describe the general pattern you see.
+
+```{r}
+# Plot histogram of site 1
+site1num <- as.numeric(site1)
+hist(site1num)
+# There is a very steep rank abundance curve, with the most dominant species being much more common than the second and third species. The rest of the species have very small abundances, and the far right end of the histogram has species that have abundances of practically 0.
+```
+
 
 3.  We asked you to find a biodiversity dataset with your partner.
 This data could be one of your own or it could be something that you obtained from the literature. 
@@ -520,6 +549,20 @@ Load that dataset.
 How many sites are there?
 How many species are there in the entire site-by-species matrix?
 Any other interesting observations based on what you learned this week?
+
+```{r}
+# load data
+library(readr)
+mydata <- read_csv(file = "DeamDataInitial.csv")
+# We are counting each Indiana as a site, so here I count the number of counties and provide the number of records for each county
+countycount <- setNames(as.data.frame(table(mydata$county)), c("county", "n"))
+print(length(countycount$county))
+# This returns 102 sites (counties), but we know there are only 92 counties in the state. These data errors are fixed in our project code
+# We transformed this data into a site by species matrix not provided here and also corrected species names, but here we can count the number of overall species and the number of records per species
+speciescount <- setNames(as.data.frame(table(mydata$scientificName)), c("scientificName", "n"))
+print(length(speciescount$scientificName))
+# Here we get that there are 2366 species, which is slightly off the corrected number due to type specimens and the inclusion of some cultivated species in the data that should be removed
+```
 
 ## SUBMITTING YOUR ASSIGNMENT
 Use Knitr to create a PDF of your completed 5.AlphaDiversity_Worksheet.Rmd document, push it to GitHub, and create a pull request.
