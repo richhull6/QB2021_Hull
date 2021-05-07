@@ -1,8 +1,3 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 u---
 title: "Team Project 5"
 output: html_notebook
@@ -357,7 +352,7 @@ alphaphylo.graph
 
 
 ## Calculate and plot beta diversity of woody tree species in Indiana
-```{r eval = FALSE, echo =x}
+```{r}
 # create matrix with counties as columns
 transspsite <- pivot_wider(woodytreedeamssm2, names_from = county, values_from = n,)
 # Replace NA's with 0
@@ -367,10 +362,61 @@ transspsite <- as.data.frame(transspsite)
 rownames(transspsite) <- transspsite[,1]
 transspsite <- transspsite[,-1]
 # perform cluster analysis
-woodytree.ward <- pvclust(transspsite, method.hclust = "ward.D2", iseed = 65, nboot = 10000)
+#woodytree.ward <- pvclust(transspsite, method.hclust = "ward.D2", iseed = 65, nboot = 10000)
 # plot cluster
-par(mar = c(1, 5, 2, 2) + 0.1)
-plot(woodytree.ward, main = "Woody Tree Species in Indiana: Ward's Clustering", ylab = "Squared Bray-Curtis Distance", cex = 0.6, col.pv = c(au = 3, bp = FALSE, edge = FALSE))
+#par(mar = c(1, 5, 2, 2) + 0.1)
+#plot(woodytree.ward, main = "Woody Tree Species in Indiana: Ward's Clustering", ylab = "Squared Bray-Curtis Distance", cex = 0.6, col.pv = c(au = 3, bp = FALSE, edge = FALSE))
+#function from: http://www.jafy.eu/posts/2019/06/pvclust-nodevalues-in-ggtree.md/
+as.phylo.pvclust.node.attributes <- function(x, attribute) {
+  N <- dim(x$merge)[1]
+  edge <- matrix(0L, 2*N, 2)
+  edge.length <- numeric(2*N)
+  ## `node' gives the number of the node for the i-th row of x$merge
+  node <- integer(N)
+  node[N] <- N + 2L
+  node.attributes <- rep(NA, N)
+  cur.nod <- N + 3L
+  j <- 1L
+  for (i in N:1) {
+    edge[j:(j + 1), 1] <- node[i]
+    for (l in 1:2) {
+      k <- j + l - 1L
+      y <- x$merge[i, l]
+      if (y > 0) {
+        edge[k, 2] <- node[y] <- cur.nod
+        cur.nod <- cur.nod + 1L
+        edge.length[k] <- x$height[i] - x$height[y]
+        node.attributes[edge[k, 1] - (N + 1)] <- attribute[i]
+      } else {
+        edge[k, 2] <- -y
+        edge.length[k] <- x$height[i]
+        node.attributes[edge[k, 1] -  (N + 1)] <- attribute[i]
+      }
+    }
+    j <- j + 2L
+  }
+  
+  if (is.null(x$labels))
+    x$labels <- as.character(1:(N + 1))
+  
+  ## MODIFICATION: clean up node.attributes so they are in same format in 
+  ## pvclust plots
+  node.attributes <- as.character(round(node.attributes * 100, 0))
+  node.attributes[1] <- NA
+  
+  obj <- list(edge = edge, edge.length = edge.length / 2,
+              tip.label = x$labels, Nnode = N, node.label = node.attributes)
+  class(obj) <- "phylo"
+  stats::reorder(obj)
+}
+# perform function
+hclust_boot_phylo <- as.phylo.pvclust.node.attributes(woodytree.ward$hclust, woodytree.ward$edges$bp)
+# plot
+ggtree(hclust_boot_phylo) +
+  geom_tippoint(aes(subset = !is.na(label) & as.numeric(label) > 50 & as.numeric(label) <= 70, label = label),fill = 'white',pch=23,size = 3) +
+  geom_tippoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 70, label = label),fill = 'white',pch=21,size = 3) +
+  geom_tippoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 80, label = label),fill = 'gray',pch=21,size = 3) +
+  geom_tippoint(aes(subset = !is.na(as.numeric(label)) & as.numeric(label) > 95, label = label),fill = 'black',pch=21,size = 3)
 ```
 
 # Test for ecoregion clustering
@@ -603,5 +649,16 @@ tm_legend(position = c("right", "bottom"),
 	bg.color="lightblue")
 ```
 
-
+```{r}
+# Plot
+tm_shape(map, projection="+init=epsg:4326") +
+  tm_polygons("sampEffort", border.col = "grey30", title="") +
+tm_layout(title="Sampling Effort for all species", 
+          title.size = 1, 
+          title.position = c("center", "top"), 
+          legend.text.size=.6, bg.color = "light blue", inner.margins=c(.1,.1,.2,.4))
+tm_legend(position = c("right", "bottom"), 
+	frame = TRUE,
+	bg.color="lightblue")
+``` 
 
