@@ -1,0 +1,2290 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdfborder={0 0 0},
+  breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-2}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+u--- title: ``Team Project 5'' output: html\_notebook ---
+
+\hypertarget{load-data}{%
+\subsection{Load data}\label{load-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# importing files}
+\KeywordTok{require}\NormalTok{(readr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: readr
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# data processing}
+\KeywordTok{require}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: dplyr
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(tidyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: tidyr
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{require}\NormalTok{(lubridate) }\CommentTok{# for date processing}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lubridate
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Map making}
+\KeywordTok{library}\NormalTok{(picante)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'picante' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: ape
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ape' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: vegan
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: permute
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## This is vegan 2.5-7
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: nlme
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'nlme'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     collapse
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(sf)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'sf' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{verbatim}
+## Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tmap)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tmap' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Visualization}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\CommentTok{# library(ggtree)}
+
+\CommentTok{# Qbio}
+\CommentTok{## Phylogenies}
+\KeywordTok{library}\NormalTok{(phyloregion)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'phyloregion' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ape)}
+\KeywordTok{require}\NormalTok{(}\StringTok{'vegan'}\NormalTok{)}
+
+\CommentTok{# Beta diversity}
+\KeywordTok{library}\NormalTok{(pvclust)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'pvclust' was built under R version 4.0.5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mydata <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\DataTypeTok{file =} \StringTok{"DeamDataInitial.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   .default = col_character(),
+##   id = col_double(),
+##   collectionCode = col_logical(),
+##   ownerInstitutionCode = col_logical(),
+##   otherCatalogNumbers = col_double(),
+##   taxonID = col_double(),
+##   subgenus = col_logical(),
+##   identificationReferences = col_logical(),
+##   identificationRemarks = col_logical(),
+##   taxonRemarks = col_logical(),
+##   identificationQualifier = col_logical(),
+##   year = col_double(),
+##   month = col_double(),
+##   day = col_double(),
+##   startDayOfYear = col_double(),
+##   endDayOfYear = col_double(),
+##   fieldNumber = col_logical(),
+##   informationWithheld = col_logical(),
+##   dataGeneralizations = col_logical(),
+##   dynamicProperties = col_logical(),
+##   establishmentMeans = col_logical()
+##   # ... with 19 more columns
+## )
+## i Use `spec()` for the full column specifications.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: 329 parsing failures.
+##  row                      col           expected                   actual                  file
+## 1132 verbatimCoordinates      1/0/T/F/TRUE/FALSE ,                        'DeamDataInitial.csv'
+## 1574 identificationRemarks    1/0/T/F/TRUE/FALSE Nomenclatural adjustment 'DeamDataInitial.csv'
+## 1579 identificationReferences 1/0/T/F/TRUE/FALSE FNA                      'DeamDataInitial.csv'
+## 1741 identificationReferences 1/0/T/F/TRUE/FALSE FNA                      'DeamDataInitial.csv'
+## 1887 identificationReferences 1/0/T/F/TRUE/FALSE FNA                      'DeamDataInitial.csv'
+## .... ........................ .................. ........................ .....................
+## See problems(...) for more details.
+\end{verbatim}
+
+\hypertarget{keep-desired-columns}{%
+\subsection{Keep desired columns}\label{keep-desired-columns}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df1 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(mydata, }\DataTypeTok{select =} \KeywordTok{c}\NormalTok{(family, genus, specificEpithet, recordedBy, eventDate, country, stateProvince, county, decimalLatitude, decimalLongitude, geodeticDatum, coordinateUncertaintyInMeters))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{combine-genus-and-specificepithet-and-then-remove-original-columns}{%
+\subsection{Combine genus and specificEpithet and then remove original
+columns}\label{combine-genus-and-specificepithet-and-then-remove-original-columns}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df1}\OperatorTok{$}\NormalTok{speciesName <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(df1}\OperatorTok{$}\NormalTok{genus,df1}\OperatorTok{$}\NormalTok{specificEpithet)}
+\NormalTok{df2 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(df1, }\DataTypeTok{select =} \KeywordTok{c}\NormalTok{(family, speciesName, recordedBy, eventDate, country, stateProvince, county, decimalLatitude, decimalLongitude))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{remove-data-with-no-gps-coordinates-or-dates}{%
+\subsection{Remove data with no GPS coordinates or
+dates}\label{remove-data-with-no-gps-coordinates-or-dates}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df3 <-}\StringTok{ }\NormalTok{df2 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{drop_na}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{remove-data-that-are-not-identified-to-species-denoted-by-na-and-remove-hybrids-denoted-by-uxf3}{%
+\subsection{Remove data that are not identified to species (denoted by
+``NA'') and remove hybrids (denoted by
+``√ó'')?}\label{remove-data-that-are-not-identified-to-species-denoted-by-na-and-remove-hybrids-denoted-by-uxf3}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.0 --
+\end{verbatim}
+
+\begin{verbatim}
+## v tibble  3.1.0     v stringr 1.4.0
+## v purrr   0.3.4     v forcats 0.5.1
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x lubridate::as.difftime() masks base::as.difftime()
+## x nlme::collapse()         masks dplyr::collapse()
+## x lubridate::date()        masks base::date()
+## x dplyr::filter()          masks stats::filter()
+## x lubridate::intersect()   masks base::intersect()
+## x dplyr::lag()             masks stats::lag()
+## x lubridate::setdiff()     masks base::setdiff()
+## x lubridate::union()       masks base::union()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df4 <-}\StringTok{ }\NormalTok{df3 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter_all}\NormalTok{(}\KeywordTok{all_vars}\NormalTok{(}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"NA"}\NormalTok{, .)))}
+\NormalTok{df5 <-}\StringTok{ }\NormalTok{df4 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter_all}\NormalTok{(}\KeywordTok{all_vars}\NormalTok{(}\OperatorTok{!}\KeywordTok{grepl}\NormalTok{(}\StringTok{"ó"}\NormalTok{, .)))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{correct-county-name-spelling}{%
+\subsection{Correct county name
+spelling}\label{correct-county-name-spelling}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Upload county name list}
+\NormalTok{ctydata <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"ctydata.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{fileEncoding=}\StringTok{"UTF-8-BOM"}\NormalTok{)}
+\CommentTok{# Test for wrong county spellings}
+\NormalTok{x <-}\StringTok{ }\NormalTok{df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{%in%}\StringTok{ }\NormalTok{ctydata}\OperatorTok{$}\NormalTok{county}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(x)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{which}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"FALSE"}\NormalTok{, y}\OperatorTok{$}\NormalTok{x)))}
+\CommentTok{## If z contains data fix}
+\CommentTok{## Correct county name spelling}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "knox"}\NormalTok{] <-}\StringTok{ "Knox"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "gibson"}\NormalTok{] <-}\StringTok{ "Gibson"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "cass"}\NormalTok{] <-}\StringTok{ "Cass"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "pike"}\NormalTok{] <-}\StringTok{ "Pike"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "orange"}\NormalTok{] <-}\StringTok{ "Orange"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "grant"}\NormalTok{] <-}\StringTok{ "Grant"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "wayne"}\NormalTok{] <-}\StringTok{ "Wayne"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "jasper"}\NormalTok{] <-}\StringTok{ "Jasper"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "ELkhart"}\NormalTok{] <-}\StringTok{ "Elkhart"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{county[df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "crawford"}\NormalTok{] <-}\StringTok{ "Crawford"}
+\CommentTok{# Test for wrong county spellings}
+\NormalTok{x <-}\StringTok{ }\NormalTok{df5}\OperatorTok{$}\NormalTok{county }\OperatorTok{%in%}\StringTok{ }\NormalTok{ctydata}\OperatorTok{$}\NormalTok{county}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(x)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{which}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"FALSE"}\NormalTok{, y}\OperatorTok{$}\NormalTok{x)))}
+\CommentTok{## If z contains data fix}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{correct-indiana-name-spelling}{%
+\subsection{Correct Indiana name
+spelling}\label{correct-indiana-name-spelling}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Check for records not Indiana}
+\KeywordTok{table}\NormalTok{(df5[,}\DecValTok{5}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## United States 
+##         47762
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Correct indiana to Indiana}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{stateProvince[df5}\OperatorTok{$}\NormalTok{stateProvince }\OperatorTok{==}\StringTok{ "indiana"}\NormalTok{] <-}\StringTok{ "Indiana"}
+\CommentTok{# Check again}
+\KeywordTok{table}\NormalTok{(df5[,}\DecValTok{5}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## United States 
+##         47762
+\end{verbatim}
+
+\hypertarget{correct-species-names-against-official-list-at-httpsmidwestherbaria.orgportalchecklistschecklist.phpclid3510pid124dynclid0.-note-that-4-species-not-on-that-list-are-included-here-because-they-are-exotic-species-validly-documented-in-the-state.}{%
+\subsection{\texorpdfstring{Correct species names against official list
+at:
+\url{https://midwestherbaria.org/portal/checklists/checklist.php?clid=3510\&pid=124\&dynclid=0}.
+Note that 4 species not on that list are included here because they are
+exotic species validly documented in the
+state.}{Correct species names against official list at: https://midwestherbaria.org/portal/checklists/checklist.php?clid=3510\&pid=124\&dynclid=0. Note that 4 species not on that list are included here because they are exotic species validly documented in the state.}}\label{correct-species-names-against-official-list-at-httpsmidwestherbaria.orgportalchecklistschecklist.phpclid3510pid124dynclid0.-note-that-4-species-not-on-that-list-are-included-here-because-they-are-exotic-species-validly-documented-in-the-state.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Upload county name list}
+\NormalTok{indspecies <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"indspecies.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{fileEncoding=}\StringTok{"UTF-8"}\NormalTok{)}
+\CommentTok{# Test for wrong species spellings}
+\NormalTok{x <-}\StringTok{ }\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{%in%}\StringTok{ }\NormalTok{indspecies}\OperatorTok{$}\NormalTok{ScientificName}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(x)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{which}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"FALSE"}\NormalTok{, y}\OperatorTok{$}\NormalTok{x)))}
+\CommentTok{## Fix data}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Andropogon gerardii"}\NormalTok{] <-}\StringTok{ "Andropogon gerardi"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Adicea deamii"}\NormalTok{] <-}\StringTok{ "Pilea pumila"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Baptisia lactea"}\NormalTok{] <-}\StringTok{ "Baptisia alba"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Lacinaria scariosa"}\NormalTok{] <-}\StringTok{ "Liatris scariosa"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Carex striatula"}\NormalTok{] <-}\StringTok{ "Carex laxiflora"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Viburnum pubescens"}\NormalTok{] <-}\StringTok{ "Viburnum dentatum"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Celtis pumila"}\NormalTok{] <-}\StringTok{ "Celtis occidentalis"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Vernonia altissima"}\NormalTok{] <-}\StringTok{ "Vernonia gigantea"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(df5}\OperatorTok{$}\NormalTok{speciesName)}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[}\KeywordTok{grepl}\NormalTok{(}\StringTok{"Malus io"}\NormalTok{, df5}\OperatorTok{$}\NormalTok{speciesName)] <-}\StringTok{ "Malus ioensis"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(df5}\OperatorTok{$}\NormalTok{speciesName)}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Botrychium obliquum"}\NormalTok{] <-}\StringTok{ "Sceptridium dissectum"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Arabis viridis"}\NormalTok{] <-}\StringTok{ "Borodinia missouriensis"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(df5}\OperatorTok{$}\NormalTok{speciesName)}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[}\KeywordTok{grepl}\NormalTok{(}\StringTok{"tes engelmannii"}\NormalTok{, df5}\OperatorTok{$}\NormalTok{speciesName)] <-}\StringTok{ "Isoetes engelmannii"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(df5}\OperatorTok{$}\NormalTok{speciesName)}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Juncus macer"}\NormalTok{] <-}\StringTok{ "Juncus anthelatus"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Solidago deamii"}\NormalTok{] <-}\StringTok{ "Solidago simplex"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Rosa deamii"}\NormalTok{] <-}\StringTok{ "Rosa carolina"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Panicum deamii"}\NormalTok{] <-}\StringTok{ "Dichanthelium ovale"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(df5}\OperatorTok{$}\NormalTok{speciesName)}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Piptatherum pungens"}\NormalTok{] <-}\StringTok{ "Piptatheropsis pungens"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Helianthus rigidus"}\NormalTok{] <-}\StringTok{ "Helianthus pauciflorus"}
+\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName[df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Malus angustifolia"}\NormalTok{] <-}\StringTok{ "Malus ioensis"}
+\CommentTok{# Remove remaining hybrids}
+\NormalTok{df6 <-}\StringTok{ }\NormalTok{df5[}\OperatorTok{!}\NormalTok{df5}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Lacinaria deamii"}\NormalTok{, ]}
+\NormalTok{df7 <-}\StringTok{ }\NormalTok{df6[}\OperatorTok{!}\NormalTok{df6}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{==}\StringTok{ "Crataegus incaedua"}\NormalTok{, ]}
+\CommentTok{# Check species again}
+\NormalTok{x <-}\StringTok{ }\NormalTok{df7}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{%in%}\StringTok{ }\NormalTok{indspecies}\OperatorTok{$}\NormalTok{ScientificName}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(x)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{which}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\StringTok{"FALSE"}\NormalTok{, y}\OperatorTok{$}\NormalTok{x)))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{export-df7-to-csv-as-filtered-data}{%
+\subsection{Export df7 to csv as filtered
+data}\label{export-df7-to-csv-as-filtered-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(df7, }\StringTok{"Deam_Collection_Data_Filtered_3-27-2021.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-site-species-matrix-for-the-complete-dataset-treating-counties-as-sites}{%
+\subsection{Create site-species matrix for the complete dataset,
+treating counties as
+sites}\label{create-site-species-matrix-for-the-complete-dataset-treating-counties-as-sites}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Subset data to only include species name and county}
+\NormalTok{df8 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(df7, }\DataTypeTok{select =} \KeywordTok{c}\NormalTok{(county, speciesName))}
+\CommentTok{# Sum number of occurrences of each species in each county}
+
+\NormalTok{df9 <-}\StringTok{ }\NormalTok{df8 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(county, speciesName)}
+\CommentTok{# Create site x species matrix by reshaping data}
+\NormalTok{compdatasitesp <-}\StringTok{ }\KeywordTok{pivot_wider}\NormalTok{(df9, }\DataTypeTok{names_from =}\NormalTok{ speciesName, }\DataTypeTok{values_from =}\NormalTok{ n,)}
+\CommentTok{# Replace NA's with 0}
+\NormalTok{compdatasitesp[}\KeywordTok{is.na}\NormalTok{(compdatasitesp)] <-}\StringTok{ }\DecValTok{0}
+
+\CommentTok{# convert back to data frame and name counties for sites. }
+\NormalTok{compdatasitesp <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(compdatasitesp)}
+\KeywordTok{rownames}\NormalTok{(compdatasitesp) <-}\StringTok{ }\NormalTok{compdatasitesp[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{compdatasitesp <-}\StringTok{ }\NormalTok{compdatasitesp[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{spatial-phylogenetic-analysis}{%
+\subsection{SPATIAL PHYLOGENETIC
+ANALYSIS}\label{spatial-phylogenetic-analysis}}
+
+\hypertarget{start-spatial-phylogenetic-analysis-of-woody-plants}{%
+\subsection{Start spatial phylogenetic analysis of woody
+plants}\label{start-spatial-phylogenetic-analysis-of-woody-plants}}
+
+\hypertarget{import-woody-tree-species-phylogeny-and-visualize}{%
+\subsection{Import woody tree species phylogeny and
+visualize}\label{import-woody-tree-species-phylogeny-and-visualize}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Import phlogenetic tree}
+\CommentTok{# Data from: 10.1111/jbi.12171}
+\NormalTok{woodytreesphylo <-}\StringTok{ }\KeywordTok{read.tree}\NormalTok{(}\DataTypeTok{file =} \StringTok{"Woody_Trees_Phylogeny.txt"}\NormalTok{)}
+\CommentTok{# Plot phylogeny}
+\KeywordTok{plot}\NormalTok{(woodytreesphylo, }\DataTypeTok{show.tip.label=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\hypertarget{subset-deam-data-by-woody-tree-species-present-in-phylogeny}{%
+\subsection{Subset Deam data by woody tree species present in
+phylogeny}\label{subset-deam-data-by-woody-tree-species-present-in-phylogeny}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Replace "_" symbol with " " in phylogeny label data}
+\NormalTok{woodytreesphylo}\OperatorTok{$}\NormalTok{tip.label <-}\StringTok{ }\KeywordTok{gsub}\NormalTok{(}\StringTok{"_"}\NormalTok{, }\StringTok{" "}\NormalTok{, woodytreesphylo}\OperatorTok{$}\NormalTok{tip.label, }\DataTypeTok{fixed=}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Establish dataframe with tree species names}
+\NormalTok{woodytreesp <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(woodytreesphylo}\OperatorTok{$}\NormalTok{tip.label)}
+\KeywordTok{colnames}\NormalTok{(woodytreesp)[}\DecValTok{1}\NormalTok{] <-}\StringTok{ "speciesName"}
+\CommentTok{# Subset Deam data using species names in phylogeny}
+\NormalTok{woodytreedeam <-}\StringTok{ }\NormalTok{df7 }\OperatorTok{%>%}
+\StringTok{      }\KeywordTok{filter}\NormalTok{(df7}\OperatorTok{$}\NormalTok{speciesName }\OperatorTok{%in%}\StringTok{ }\NormalTok{woodytreesp}\OperatorTok{$}\NormalTok{speciesName)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-number-of-species-in-indiana-and-number-of-occurrences-for-each-species}{%
+\subsection{Calculate number of species in Indiana and number of
+occurrences for each
+species}\label{calculate-number-of-species-in-indiana-and-number-of-occurrences-for-each-species}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Number of occurrences of each species}
+\NormalTok{speciescount <-}\StringTok{ }\KeywordTok{setNames}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(woodytreedeam}\OperatorTok{$}\NormalTok{speciesName)), }\KeywordTok{c}\NormalTok{(}\StringTok{"speciesName"}\NormalTok{, }\StringTok{"n"}\NormalTok{))}
+\CommentTok{# Number of occurences per county}
+\NormalTok{countycount <-}\StringTok{ }\KeywordTok{setNames}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{table}\NormalTok{(woodytreedeam}\OperatorTok{$}\NormalTok{county)), }\KeywordTok{c}\NormalTok{(}\StringTok{"county"}\NormalTok{, }\StringTok{"n"}\NormalTok{))}
+\NormalTok{countycount}\OperatorTok{$}\NormalTok{county <-}\StringTok{ }\KeywordTok{as.character}\NormalTok{(countycount}\OperatorTok{$}\NormalTok{county)}
+\NormalTok{countycount}\OperatorTok{$}\NormalTok{county[countycount}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "La Porte"}\NormalTok{] <-}\StringTok{ "LaPorte"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{create-site-species-matrix-for-woody-tree-species-in-indiana}{%
+\section{Create site species matrix for woody tree species in
+Indiana}\label{create-site-species-matrix-for-woody-tree-species-in-indiana}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Subset data to only include species name and county}
+\NormalTok{woodytreedeamssm1 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(woodytreedeam, }\DataTypeTok{select =} \KeywordTok{c}\NormalTok{(county, speciesName))}
+\NormalTok{woodytreedeamssm2 <-}\StringTok{ }\NormalTok{woodytreedeamssm1 }\OperatorTok{%>%}\StringTok{ }\KeywordTok{count}\NormalTok{(county, speciesName)}
+\CommentTok{# Create site x species matrix by reshaping data}
+\NormalTok{woodytreedeamssm3 <-}\StringTok{ }\KeywordTok{pivot_wider}\NormalTok{(woodytreedeamssm2, }\DataTypeTok{names_from =}\NormalTok{ speciesName, }\DataTypeTok{values_from =}\NormalTok{ n,)}
+\CommentTok{# Replace NA's with 0}
+\NormalTok{woodytreedeamssm3[}\KeywordTok{is.na}\NormalTok{(woodytreedeamssm3)] <-}\StringTok{ }\DecValTok{0}
+\CommentTok{# convert back to data frame and name counties for sites. }
+\NormalTok{woodytreedeamssm3 <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(woodytreedeamssm3)}
+\KeywordTok{rownames}\NormalTok{(woodytreedeamssm3) <-}\StringTok{ }\NormalTok{woodytreedeamssm3[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{woodytreedeamssm3 <-}\StringTok{ }\NormalTok{woodytreedeamssm3[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{calculate-faiths-phylogenetic-diversity-per-indiana-county}{%
+\section{Calculate Faith's phylogenetic diversity per Indiana
+county}\label{calculate-faiths-phylogenetic-diversity-per-indiana-county}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# install and load package}
+\CommentTok{#install.packages("picante")}
+
+\CommentTok{# Calculate Faith's phylogenetic diversity}
+\NormalTok{fpdwoody <-}\StringTok{ }\KeywordTok{pd}\NormalTok{(woodytreedeamssm3, woodytreesphylo, }\DataTypeTok{include.root=}\OtherTok{TRUE}\NormalTok{)}
+\CommentTok{# Set row header to new column}
+\NormalTok{fpdwoody}\OperatorTok{$}\NormalTok{county <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(fpdwoody)}
+\CommentTok{# Change La Porte to "LaPorte"}
+\NormalTok{fpdwoody}\OperatorTok{$}\NormalTok{county[fpdwoody}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "La Porte"}\NormalTok{] <-}\StringTok{ "LaPorte"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{upload-indiana-county-maps}{%
+\section{Upload Indiana county maps}\label{upload-indiana-county-maps}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# upload shapefile with indiana counties}
+\NormalTok{indcounties1 <-}\StringTok{ }\KeywordTok{st_read}\NormalTok{(}\StringTok{"Indiana_Counties.shp"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Reading layer `Indiana_Counties' from data source `C:\Users\Rich Hull\GitHub\teamproject5\Indiana_Counties.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 92 features and 10 fields
+## Geometry type: POLYGON
+## Dimension:     XY
+## Bounding box:  xmin: -88.09789 ymin: 37.77174 xmax: -84.78458 ymax: 41.76059
+## Geodetic CRS:  NAD83
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# subset indiana counties}
+\NormalTok{indcounties2 <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(indcounties1, }\DataTypeTok{select =} \KeywordTok{c}\NormalTok{(NAME, geometry))}
+\CommentTok{# change crs to wgs84}
+\NormalTok{indcounties3 <-}\StringTok{ }\KeywordTok{st_transform}\NormalTok{(indcounties2, }\DecValTok{4326}\NormalTok{)}
+\CommentTok{# rename "NAME" column to "county"}
+\KeywordTok{colnames}\NormalTok{(indcounties3)[}\DecValTok{1}\NormalTok{] <-}\StringTok{ "county"}
+\CommentTok{# insert county centroid point}
+\NormalTok{indcounties4 <-}\StringTok{ }\NormalTok{indcounties3}
+\NormalTok{indcounties4}\OperatorTok{$}\NormalTok{centroid <-}\StringTok{ }\KeywordTok{st_centroid}\NormalTok{(indcounties4}\OperatorTok{$}\NormalTok{geometry)}
+\NormalTok{indcounties4}\OperatorTok{$}\NormalTok{xy <-}\StringTok{ }\KeywordTok{st_coordinates}\NormalTok{(indcounties4}\OperatorTok{$}\NormalTok{centroid)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{plot-heat-map-of-faiths-phylogenetic-diversity-for-woody-trees-of-indiana-on-per-county-basis}{%
+\section{Plot heat map of Faith's phylogenetic diversity for woody trees
+of Indiana on per county
+basis}\label{plot-heat-map-of-faiths-phylogenetic-diversity-for-woody-trees-of-indiana-on-per-county-basis}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Merge data}
+\NormalTok{map <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(indcounties3,}
+\NormalTok{                     fpdwoody,}
+                     \DataTypeTok{by.x =} \StringTok{"county"}\NormalTok{,}
+                     \DataTypeTok{by.y =} \StringTok{"county"}\NormalTok{)}
+\CommentTok{# Plot}
+\KeywordTok{tm_shape}\NormalTok{(map, }\DataTypeTok{projection=}\StringTok{"+init=epsg:4326"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_polygons}\NormalTok{(}\StringTok{"PD"}\NormalTok{, }\DataTypeTok{border.col =} \StringTok{"grey30"}\NormalTok{, }\DataTypeTok{title=}\StringTok{""}\NormalTok{) }\OperatorTok{+}
+\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{title=}\StringTok{"Faith's Phylogenetic Diversity"}\NormalTok{, }
+          \DataTypeTok{title.size =} \DecValTok{1}\NormalTok{, }
+          \DataTypeTok{title.position =} \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"top"}\NormalTok{), }
+          \DataTypeTok{legend.text.size=}\NormalTok{.}\DecValTok{6}\NormalTok{, }\DataTypeTok{bg.color =} \StringTok{"light blue"}\NormalTok{, }\DataTypeTok{inner.margins=}\KeywordTok{c}\NormalTok{(.}\DecValTok{1}\NormalTok{,.}\DecValTok{1}\NormalTok{,.}\DecValTok{2}\NormalTok{,.}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in CPL_crs_from_input(x): GDAL Message 1: +init=epsg:XXXX syntax is
+## deprecated. It might return a CRS with a non-EPSG compliant axis order.
+\end{verbatim}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-18-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tm_legend}\NormalTok{(}\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{), }
+    \DataTypeTok{frame =} \OtherTok{TRUE}\NormalTok{,}
+    \DataTypeTok{bg.color=}\StringTok{"lightblue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $tm_layout
+## $tm_layout$legend.position
+## [1] "right"  "bottom"
+## 
+## $tm_layout$legend.frame
+## [1] TRUE
+## 
+## $tm_layout$legend.bg.color
+## [1] "lightblue"
+## 
+## $tm_layout$style
+## [1] NA
+## 
+## 
+## attr(,"class")
+## [1] "tm"
+\end{verbatim}
+
+\hypertarget{calculate-and-plot-alpha-diversity-of-woody-tree-species-in-indiana}{%
+\subsection{Calculate and plot alpha diversity of woody tree species in
+Indiana}\label{calculate-and-plot-alpha-diversity-of-woody-tree-species-in-indiana}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# define species richness function with site species matrix as input}
+\NormalTok{S.obs <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{x =} \StringTok{""}\NormalTok{)\{}
+  \KeywordTok{rowSums}\NormalTok{(x }\OperatorTok{>}\StringTok{ }\DecValTok{0}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{1}
+\NormalTok{\}}
+\CommentTok{# calculate site species richness (county) using site species matrix of Indiana woody tree species}
+\NormalTok{obssprichwt <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{S.obs}\NormalTok{(woodytreedeamssm3))}
+\KeywordTok{colnames}\NormalTok{(obssprichwt)[}\DecValTok{1}\NormalTok{] <-}\StringTok{ "speciesRichness"}
+\CommentTok{# Set row header to new column}
+\NormalTok{obssprichwt}\OperatorTok{$}\NormalTok{county <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(obssprichwt)}
+\CommentTok{# Change La Porte to "LaPorte"}
+\NormalTok{obssprichwt}\OperatorTok{$}\NormalTok{county[obssprichwt}\OperatorTok{$}\NormalTok{county }\OperatorTok{==}\StringTok{ "La Porte"}\NormalTok{] <-}\StringTok{ "LaPorte"}
+\CommentTok{# Plot species richness as heat map per county}
+\CommentTok{# Merge data}
+\NormalTok{map1 <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(indcounties3,}
+\NormalTok{                     obssprichwt,}
+                     \DataTypeTok{by.x =} \StringTok{"county"}\NormalTok{,}
+                     \DataTypeTok{by.y =} \StringTok{"county"}\NormalTok{)}
+\CommentTok{# Plot}
+\KeywordTok{tm_shape}\NormalTok{(map1, }\DataTypeTok{projection=}\StringTok{"+init=epsg:4326"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_polygons}\NormalTok{(}\StringTok{"speciesRichness"}\NormalTok{, }\DataTypeTok{border.col =} \StringTok{"grey30"}\NormalTok{, }\DataTypeTok{title=}\StringTok{""}\NormalTok{) }\OperatorTok{+}
+\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{title=}\StringTok{"Observed Species Richness"}\NormalTok{, }
+          \DataTypeTok{title.size =} \DecValTok{1}\NormalTok{, }
+          \DataTypeTok{title.position =} \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"top"}\NormalTok{), }
+          \DataTypeTok{legend.text.size=}\NormalTok{.}\DecValTok{6}\NormalTok{, }\DataTypeTok{bg.color =} \StringTok{"light blue"}\NormalTok{, }\DataTypeTok{inner.margins=}\KeywordTok{c}\NormalTok{(.}\DecValTok{1}\NormalTok{,.}\DecValTok{1}\NormalTok{,.}\DecValTok{2}\NormalTok{,.}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tm_legend}\NormalTok{(}\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{), }
+    \DataTypeTok{frame =} \OtherTok{TRUE}\NormalTok{,}
+    \DataTypeTok{bg.color=}\StringTok{"lightblue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $tm_layout
+## $tm_layout$legend.position
+## [1] "right"  "bottom"
+## 
+## $tm_layout$legend.frame
+## [1] TRUE
+## 
+## $tm_layout$legend.bg.color
+## [1] "lightblue"
+## 
+## $tm_layout$style
+## [1] NA
+## 
+## 
+## attr(,"class")
+## [1] "tm"
+\end{verbatim}
+
+\hypertarget{test-for-significance-of-woody-tree-alpha-diversity-in-southern-section-of-state}{%
+\subsection{Test for significance of woody tree alpha diversity in
+southern section of
+state}\label{test-for-significance-of-woody-tree-alpha-diversity-in-southern-section-of-state}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# import county data}
+\NormalTok{ctydatalat <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"IndianaCountiesSN.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{fileEncoding=}\StringTok{"UTF-8-BOM"}\NormalTok{)}
+\CommentTok{# merge with species richness data}
+\NormalTok{ctyspeciesrich <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(ctydatalat,}
+\NormalTok{                     obssprichwt,}
+                     \DataTypeTok{by.x =} \StringTok{"county"}\NormalTok{,}
+                     \DataTypeTok{by.y =} \StringTok{"county"}\NormalTok{)}
+\CommentTok{# perform t-test}
+\KeywordTok{t.test}\NormalTok{(speciesRichness }\OperatorTok{~}\StringTok{ }\NormalTok{latitude, }\DataTypeTok{alternative =} \StringTok{"less"}\NormalTok{, }\DataTypeTok{data =}\NormalTok{ ctyspeciesrich)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  speciesRichness by latitude
+## t = -2.0465, df = 26.253, p-value = 0.02542
+## alternative hypothesis: true difference in means is less than 0
+## 95 percent confidence interval:
+##       -Inf -1.453648
+## sample estimates:
+## mean in group N mean in group S 
+##        31.38889        40.10000
+\end{verbatim}
+
+\hypertarget{test-for-correlation-between-alpha-diversity-and-phylogenetic-diversity}{%
+\subsection{Test for correlation between alpha diversity and
+phylogenetic
+diversity}\label{test-for-correlation-between-alpha-diversity-and-phylogenetic-diversity}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# summarize data}
+\KeywordTok{summary}\NormalTok{(fpdwoody)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        PD               SR           county         
+##  Min.   : 652.3   Min.   : 6.00   Length:92         
+##  1st Qu.:1819.9   1st Qu.:23.75   Class :character  
+##  Median :2218.9   Median :33.00   Mode  :character  
+##  Mean   :2269.2   Mean   :33.28                     
+##  3rd Qu.:2725.8   3rd Qu.:40.00                     
+##  Max.   :3751.7   Max.   :67.00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# check for normality}
+\KeywordTok{hist}\NormalTok{(fpdwoody}\OperatorTok{$}\NormalTok{PD)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(fpdwoody}\OperatorTok{$}\NormalTok{SR)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-21-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# take log of data}
+\NormalTok{fpdwoody}\OperatorTok{$}\NormalTok{logpd <-}\StringTok{ }\KeywordTok{log}\NormalTok{(fpdwoody}\OperatorTok{$}\NormalTok{PD)}
+\NormalTok{fpdwoody}\OperatorTok{$}\NormalTok{logsr <-}\StringTok{ }\KeywordTok{log}\NormalTok{(fpdwoody}\OperatorTok{$}\NormalTok{SR)}
+\CommentTok{# perform linear regression}
+\NormalTok{pd.sr.lm <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(logsr }\OperatorTok{~}\StringTok{ }\NormalTok{logpd, }\DataTypeTok{data =}\NormalTok{ fpdwoody)}
+\KeywordTok{summary}\NormalTok{(pd.sr.lm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = logsr ~ logpd, data = fpdwoody)
+## 
+## Residuals:
+##       Min        1Q    Median        3Q       Max 
+## -0.209559 -0.074841  0.001887  0.060110  0.268357 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) -7.53382    0.20841  -36.15   <2e-16 ***
+## logpd        1.42380    0.02716   52.43   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.09697 on 90 degrees of freedom
+## Multiple R-squared:  0.9683, Adjusted R-squared:  0.9679 
+## F-statistic:  2749 on 1 and 90 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# visualize linear regression}
+\NormalTok{alphaphylo.graph <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(fpdwoody, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{logpd, }\DataTypeTok{y=}\NormalTok{logsr))}\OperatorTok{+}
+\StringTok{                     }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"lm"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"black"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Species Richness vs. Phlyogenetic Diversity"}\NormalTok{,}
+      \DataTypeTok{x =} \StringTok{"Faith's Phylogenetic Diversity (log)"}\NormalTok{,}
+      \DataTypeTok{y =} \StringTok{"Species Richness (log)"}\NormalTok{)}
+\NormalTok{alphaphylo.graph}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-21-3.pdf}
+
+\hypertarget{test-for-unequal-scaling-between-alpha-and-phylogenetic-diversity-across-the-state}{%
+\subsection{Test for unequal scaling between alpha and phylogenetic
+diversity across the
+state}\label{test-for-unequal-scaling-between-alpha-and-phylogenetic-diversity-across-the-state}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Calculate PD/SR ratio}
+\NormalTok{fpdwoody}\OperatorTok{$}\NormalTok{pdsrratio <-}\StringTok{ }\NormalTok{fpdwoody}\OperatorTok{$}\NormalTok{PD }\OperatorTok{/}\StringTok{ }\NormalTok{fpdwoody}\OperatorTok{$}\NormalTok{SR}
+\CommentTok{# import county data}
+\NormalTok{ctydatascaling <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"IndianaCountiesScaling.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{fileEncoding=}\StringTok{"UTF-8-BOM"}\NormalTok{)}
+\CommentTok{# merge with species richness data}
+\NormalTok{ctyspeciesscale <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(ctydatascaling,}
+\NormalTok{                     fpdwoody,}
+                     \DataTypeTok{by.x =} \StringTok{"county"}\NormalTok{,}
+                     \DataTypeTok{by.y =} \StringTok{"county"}\NormalTok{)}
+\NormalTok{ctyspeciesscale}\OperatorTok{$}\NormalTok{colors <-}\StringTok{ }\KeywordTok{as.factor}\NormalTok{(ctyspeciesscale}\OperatorTok{$}\NormalTok{latitude)}
+\CommentTok{# run anova}
+\NormalTok{anovapdsrratio <-}\StringTok{ }\KeywordTok{aov}\NormalTok{(pdsrratio }\OperatorTok{~}\StringTok{ }\NormalTok{latitude, }\DataTypeTok{data =}\NormalTok{ ctyspeciesscale)}
+\KeywordTok{summary}\NormalTok{(anovapdsrratio)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             Df Sum Sq Mean Sq F value   Pr(>F)    
+## latitude     2   4122    2061   11.98 2.46e-05 ***
+## Residuals   89  15307     172                     
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# visualize data via boxplot}
+\KeywordTok{boxplot}\NormalTok{(pdsrratio }\OperatorTok{~}\StringTok{ }\NormalTok{latitude, }\DataTypeTok{data =}\NormalTok{ ctyspeciesscale, }\DataTypeTok{main =} \StringTok{"PD:AD Ratio across Three Regions"}\NormalTok{,}
+   \DataTypeTok{xlab =} \StringTok{"Indiana Regions"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"PD:AD"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plot of data}
+\NormalTok{alphaphylo.graph <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(ctyspeciesscale, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{logpd, }\DataTypeTok{y=}\NormalTok{logsr,}\DataTypeTok{col=}\NormalTok{colors))}\OperatorTok{+}
+\StringTok{                     }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"lm"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"black"}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{title =} \StringTok{"Species Richness vs. Phlyogenetic Diversity"}\NormalTok{,}
+      \DataTypeTok{x =} \StringTok{"Faith's Phylogenetic Diversity (log)"}\NormalTok{,}
+      \DataTypeTok{y =} \StringTok{"Species Richness (log)"}\NormalTok{)}
+\NormalTok{alphaphylo.graph}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-22-2.pdf}
+
+\hypertarget{calculate-and-plot-beta-diversity-of-woody-tree-species-in-indiana}{%
+\subsection{Calculate and plot beta diversity of woody tree species in
+Indiana}\label{calculate-and-plot-beta-diversity-of-woody-tree-species-in-indiana}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# create matrix with counties as columns}
+\NormalTok{transspsite <-}\StringTok{ }\KeywordTok{pivot_wider}\NormalTok{(woodytreedeamssm2, }\DataTypeTok{names_from =}\NormalTok{ county, }\DataTypeTok{values_from =}\NormalTok{ n,)}
+\CommentTok{# Replace NA's with 0}
+\NormalTok{transspsite[}\KeywordTok{is.na}\NormalTok{(transspsite)] <-}\StringTok{ }\DecValTok{0}
+\CommentTok{# convert back to data frame and name counties for sites. }
+\NormalTok{transspsite <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(transspsite)}
+\KeywordTok{rownames}\NormalTok{(transspsite) <-}\StringTok{ }\NormalTok{transspsite[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{transspsite <-}\StringTok{ }\NormalTok{transspsite[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\CommentTok{# perform cluster analysis}
+\NormalTok{woodytree.ward <-}\StringTok{ }\KeywordTok{pvclust}\NormalTok{(transspsite, }\DataTypeTok{method.hclust =} \StringTok{"ward.D2"}\NormalTok{, }\DataTypeTok{iseed =} \DecValTok{65}\NormalTok{, }\DataTypeTok{nboot =} \DecValTok{10000}\NormalTok{)}
+\CommentTok{# plot cluster}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\FloatTok{0.1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(woodytree.ward, }\DataTypeTok{main =} \StringTok{"Woody Tree Species in Indiana: Ward's Clustering"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Squared Bray-Curtis Distance"}\NormalTok{, }\DataTypeTok{cex =} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{col.pv =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{au =} \DecValTok{3}\NormalTok{, }\DataTypeTok{bp =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{edge =} \OtherTok{FALSE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{test-for-ecoregion-clustering}{%
+\section{Test for ecoregion
+clustering}\label{test-for-ecoregion-clustering}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# upload county ecoregion dataframe}
+\NormalTok{ctydataecoreg <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"IndianaCountiesEcoregionsIV.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{fileEncoding=}\StringTok{"UTF-8-BOM"}\NormalTok{)}
+\KeywordTok{rownames}\NormalTok{(ctydataecoreg) <-}\StringTok{ }\NormalTok{ctydataecoreg[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{ctydataecoreg <-}\StringTok{ }\NormalTok{ctydataecoreg[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\KeywordTok{as.factor}\NormalTok{(ctydataecoreg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] Clayey High Lime Till Plains        Clayey High Lime Till Plains       
+##  [3] Loamy High Lime Till Plains         Illinois/Indiana Prairies          
+##  [5] Clayey High Lime Till Plains        Loamy High Lime Till Plains        
+##  [7] Knobs-Norman Upland                 Loamy High Lime Till Plains        
+##  [9] Loamy High Lime Till Plains         Pre-Wisconsinan Drift Plains       
+## [11] Glaciated Wabash Lowlands           Loamy High Lime Till Plains        
+## [13] Crawford-Mammoth Cave Uplands       Glaciated Wabash Lowlands          
+## [15] Outer Bluegrass                     Loamy High Lime Till Plains        
+## [17] Clayey High Lime Till Plains        Clayey High Lime Till Plains       
+## [19] Crawford-Mammoth Cave Uplands       Battle Creek/Elkhart Outwash Plain 
+## [21] Whitewater Interlobate Area         Mitchell Plain                     
+## [23] Loamy High Lime Till Plains         Outer Bluegrass                    
+## [25] Middle Tippecanoe Plains            Wabash-Ohio Bottomlands            
+## [27] Clayey High Lime Till Plains        Glaciated Wabash Lowlands          
+## [29] Loamy High Lime Till Plains         Loamy High Lime Till Plains        
+## [31] Mitchell Plain                      Loamy High Lime Till Plains        
+## [33] Whitewater Interlobate Area         Loamy High Lime Till Plains        
+## [35] Clayey High Lime Till Plains        Pre-Wisconsinan Drift Plains       
+## [37] Sand Area                           Clayey High Lime Till Plains       
+## [39] Pre-Wisconsinan Drift Plains        Pre-Wisconsinan Drift Plains       
+## [41] Loamy High Lime Till Plains         Glaciated Wabash Lowlands          
+## [43] Northern Indiana Lake Country       Battle Creek/Elkhart Outwash Plain 
+## [45] Valparaiso-Wheaton Morainal Complex Battle Creek/Elkhart Outwash Plain 
+## [47] Mitchell Plain                      Loamy High Lime Till Plains        
+## [49] Loamy High Lime Till Plains         Battle Creek/Elkhart Outwash Plain 
+## [51] Crawford-Mammoth Cave Uplands       Clayey High Lime Till Plains       
+## [53] Knobs-Norman Upland                 Loamy High Lime Till Plains        
+## [55] Knobs-Norman Upland                 Sand Area                          
+## [57] Outer Bluegrass                     Crawford-Mammoth Cave Uplands      
+## [59] Crawford-Mammoth Cave Uplands       Loamy High Lime Till Plains        
+## [61] Crawford-Mammoth Cave Uplands       Wabash-Ohio Bottomlands            
+## [63] Northern Indiana Lake Country       Valparaiso-Wheaton Morainal Complex
+## [65] Wabash-Ohio Bottomlands             Middle Tippecanoe Plains           
+## [67] Loamy High Lime Till Plains         Clayey High Lime Till Plains       
+## [69] Pre-Wisconsinan Drift Plains        Loamy High Lime Till Plains        
+## [71] Pre-Wisconsinan Drift Plains        Loamy High Lime Till Plains        
+## [73] Wabash-Ohio Bottomlands             Battle Creek/Elkhart Outwash Plain 
+## [75] Sand Area                           Northern Indiana Lake Country      
+## [77] Glaciated Wabash Lowlands           Outer Bluegrass                    
+## [79] Loamy High Lime Till Plains         Loamy High Lime Till Plains        
+## [81] Loamy High Lime Till Plains         Wabash-Ohio Bottomlands            
+## [83] Glaciated Wabash Lowlands           Glaciated Wabash Lowlands          
+## [85] Clayey High Lime Till Plains        Illinois/Indiana Prairies          
+## [87] Wabash-Ohio Bottomlands             Mitchell Plain                     
+## [89] Whitewater Interlobate Area         Clayey High Lime Till Plains       
+## [91] Sand Area                           Clayey High Lime Till Plains       
+## 16 Levels: Battle Creek/Elkhart Outwash Plain ... Whitewater Interlobate Area
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# run PERMANOVA with adonis function}
+\KeywordTok{adonis}\NormalTok{(woodytreedeamssm3 }\OperatorTok{~}\StringTok{ }\NormalTok{ctydataecoreg, }\DataTypeTok{method =} \StringTok{"bray"}\NormalTok{, }\DataTypeTok{permutations =} \DecValTok{999}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## adonis(formula = woodytreedeamssm3 ~ ctydataecoreg, permutations = 999,      method = "bray") 
+## 
+## Permutation: free
+## Number of permutations: 999
+## 
+## Terms added sequentially (first to last)
+## 
+##               Df SumsOfSqs MeanSqs F.Model      R2 Pr(>F)    
+## ctydataecoreg 15    6.9402 0.46268  2.2732 0.30971  0.001 ***
+## Residuals     76   15.4684 0.20353         0.69029           
+## Total         91   22.4086                 1.00000           
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# upload county ecoregion dataframe}
+\NormalTok{ctydataecoregiii <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"IndianaCountiesEcoregionsIII.csv"}\NormalTok{, }\DataTypeTok{header =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{fileEncoding=}\StringTok{"UTF-8-BOM"}\NormalTok{)}
+\KeywordTok{rownames}\NormalTok{(ctydataecoregiii) <-}\StringTok{ }\NormalTok{ctydataecoregiii[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{ctydataecoregiii <-}\StringTok{ }\NormalTok{ctydataecoregiii[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\KeywordTok{as.factor}\NormalTok{(ctydataecoregiii)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] Eastern Corn Belt Plains                       
+##  [2] Eastern Corn Belt Plains                       
+##  [3] Eastern Corn Belt Plains                       
+##  [4] Central Corn Belt Plains                       
+##  [5] Eastern Corn Belt Plains                       
+##  [6] Eastern Corn Belt Plains                       
+##  [7] Interior Plateau                               
+##  [8] Eastern Corn Belt Plains                       
+##  [9] Southern Michigan/Northern Indiana Drift Plains
+## [10] Eastern Corn Belt Plains                       
+## [11] Interior River Valley and Hills                
+## [12] Eastern Corn Belt Plains                       
+## [13] Interior Plateau                               
+## [14] Interior River Valley and Hills                
+## [15] Interior Plateau                               
+## [16] Eastern Corn Belt Plains                       
+## [17] Eastern Corn Belt Plains                       
+## [18] Eastern Corn Belt Plains                       
+## [19] Interior Plateau                               
+## [20] Southern Michigan/Northern Indiana Drift Plains
+## [21] Eastern Corn Belt Plains                       
+## [22] Interior Plateau                               
+## [23] Eastern Corn Belt Plains                       
+## [24] Eastern Corn Belt Plains                       
+## [25] Southern Michigan/Northern Indiana Drift Plains
+## [26] Interior River Valley and Hills                
+## [27] Eastern Corn Belt Plains                       
+## [28] Interior River Valley and Hills                
+## [29] Eastern Corn Belt Plains                       
+## [30] Eastern Corn Belt Plains                       
+## [31] Interior Plateau                               
+## [32] Eastern Corn Belt Plains                       
+## [33] Eastern Corn Belt Plains                       
+## [34] Eastern Corn Belt Plains                       
+## [35] Eastern Corn Belt Plains                       
+## [36] Eastern Corn Belt Plains                       
+## [37] Central Corn Belt Plains                       
+## [38] Eastern Corn Belt Plains                       
+## [39] Eastern Corn Belt Plains                       
+## [40] Eastern Corn Belt Plains                       
+## [41] Eastern Corn Belt Plains                       
+## [42] Interior River Valley and Hills                
+## [43] Southern Michigan/Northern Indiana Drift Plains
+## [44] Southern Michigan/Northern Indiana Drift Plains
+## [45] Central Corn Belt Plains                       
+## [46] Southern Michigan/Northern Indiana Drift Plains
+## [47] Interior Plateau                               
+## [48] Eastern Corn Belt Plains                       
+## [49] Eastern Corn Belt Plains                       
+## [50] Southern Michigan/Northern Indiana Drift Plains
+## [51] Interior Plateau                               
+## [52] Eastern Corn Belt Plains                       
+## [53] Interior Plateau                               
+## [54] Eastern Corn Belt Plains                       
+## [55] Eastern Corn Belt Plains                       
+## [56] Central Corn Belt Plains                       
+## [57] Southern Michigan/Northern Indiana Drift Plains
+## [58] Interior Plateau                               
+## [59] Interior Plateau                               
+## [60] Interior Plateau                               
+## [61] Eastern Corn Belt Plains                       
+## [62] Interior Plateau                               
+## [63] Interior River Valley and Hills                
+## [64] Central Corn Belt Plains                       
+## [65] Interior River Valley and Hills                
+## [66] Central Corn Belt Plains                       
+## [67] Eastern Corn Belt Plains                       
+## [68] Eastern Corn Belt Plains                       
+## [69] Eastern Corn Belt Plains                       
+## [70] Eastern Corn Belt Plains                       
+## [71] Eastern Corn Belt Plains                       
+## [72] Eastern Corn Belt Plains                       
+## [73] Interior River Valley and Hills                
+## [74] Southern Michigan/Northern Indiana Drift Plains
+## [75] Central Corn Belt Plains                       
+## [76] Southern Michigan/Northern Indiana Drift Plains
+## [77] Interior River Valley and Hills                
+## [78] Interior Plateau                               
+## [79] Eastern Corn Belt Plains                       
+## [80] Eastern Corn Belt Plains                       
+## [81] Eastern Corn Belt Plains                       
+## [82] Interior River Valley and Hills                
+## [83] Interior River Valley and Hills                
+## [84] Interior River Valley and Hills                
+## [85] Eastern Corn Belt Plains                       
+## [86] Central Corn Belt Plains                       
+## [87] Interior River Valley and Hills                
+## [88] Interior Plateau                               
+## [89] Eastern Corn Belt Plains                       
+## [90] Eastern Corn Belt Plains                       
+## [91] Central Corn Belt Plains                       
+## [92] Eastern Corn Belt Plains                       
+## 5 Levels: Central Corn Belt Plains ... Southern Michigan/Northern Indiana Drift Plains
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# run PERMANOVA with adonis function}
+\KeywordTok{adonis}\NormalTok{(woodytreedeamssm3 }\OperatorTok{~}\StringTok{ }\NormalTok{ctydataecoregiii, }\DataTypeTok{method =} \StringTok{"bray"}\NormalTok{, }\DataTypeTok{permutations =} \DecValTok{999}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## adonis(formula = woodytreedeamssm3 ~ ctydataecoregiii, permutations = 999,      method = "bray") 
+## 
+## Permutation: free
+## Number of permutations: 999
+## 
+## Terms added sequentially (first to last)
+## 
+##                  Df SumsOfSqs MeanSqs F.Model      R2 Pr(>F)    
+## ctydataecoregiii  4     3.138 0.78451  3.5418 0.14004  0.001 ***
+## Residuals        87    19.271 0.22150         0.85996           
+## Total            91    22.409                 1.00000           
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\hypertarget{create-heat-map-of-occurrences-of-woody-tree-species-in-indiana}{%
+\section{Create heat map of occurrences of woody tree species in
+Indiana}\label{create-heat-map-of-occurrences-of-woody-tree-species-in-indiana}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Merge data}
+\NormalTok{map3 <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(indcounties3,}
+\NormalTok{                     countycount,}
+                     \DataTypeTok{by.x =} \StringTok{"county"}\NormalTok{,}
+                     \DataTypeTok{by.y =} \StringTok{"county"}\NormalTok{)}
+\CommentTok{# Plot}
+\KeywordTok{tm_shape}\NormalTok{(map3, }\DataTypeTok{projection=}\StringTok{"+init=epsg:4326"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_polygons}\NormalTok{(}\StringTok{"n"}\NormalTok{, }\DataTypeTok{border.col =} \StringTok{"grey30"}\NormalTok{, }\DataTypeTok{title=}\StringTok{""}\NormalTok{) }\OperatorTok{+}
+\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{title=}\StringTok{"Number of Occurrences of Woody Tree Species"}\NormalTok{, }
+          \DataTypeTok{title.size =} \DecValTok{1}\NormalTok{, }
+          \DataTypeTok{title.position =} \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"top"}\NormalTok{), }
+          \DataTypeTok{legend.text.size=}\NormalTok{.}\DecValTok{6}\NormalTok{, }\DataTypeTok{bg.color =} \StringTok{"light blue"}\NormalTok{, }\DataTypeTok{inner.margins=}\KeywordTok{c}\NormalTok{(.}\DecValTok{1}\NormalTok{,.}\DecValTok{1}\NormalTok{,.}\DecValTok{2}\NormalTok{,.}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tm_legend}\NormalTok{(}\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{), }
+    \DataTypeTok{frame =} \OtherTok{TRUE}\NormalTok{,}
+    \DataTypeTok{bg.color=}\StringTok{"lightblue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $tm_layout
+## $tm_layout$legend.position
+## [1] "right"  "bottom"
+## 
+## $tm_layout$legend.frame
+## [1] TRUE
+## 
+## $tm_layout$legend.bg.color
+## [1] "lightblue"
+## 
+## $tm_layout$style
+## [1] NA
+## 
+## 
+## attr(,"class")
+## [1] "tm"
+\end{verbatim}
+
+\hypertarget{census-data-associations-with-species}{%
+\section{Census Data Associations with
+Species}\label{census-data-associations-with-species}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{S.obs <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{x=}\StringTok{''}\NormalTok{)\{}
+  \KeywordTok{rowSums}\NormalTok{(x}\OperatorTok{>}\DecValTok{0}\NormalTok{)}\OperatorTok{*}\DecValTok{1}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+What Census should we use?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a <-}\StringTok{ }\KeywordTok{parse_date_time}\NormalTok{(}\KeywordTok{as.vector}\NormalTok{(df7}\OperatorTok{$}\NormalTok{eventDate),}\DataTypeTok{orders =} \KeywordTok{c}\NormalTok{(}\StringTok{"mdy"}\NormalTok{,}\StringTok{"ymd"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: 24 failed to parse.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Items with invalid Dates:}
+\CommentTok{# df7[which(is.na(a)),]}
+\KeywordTok{mean}\NormalTok{(a,}\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1920-12-23 06:11:27 UTC"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{median}\NormalTok{(a,}\DataTypeTok{na.rm=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1919-09-23 UTC"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# US population Census 1920}
+\NormalTok{USCensus <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/IndianaCensus.csv"}\NormalTok{,}\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{))}
+\KeywordTok{rownames}\NormalTok{(USCensus) <-}\StringTok{ }\NormalTok{USCensus[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{USCensus <-}\StringTok{ }\NormalTok{USCensus[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\CommentTok{# Census of Agriculture of 1920}
+\NormalTok{AgCensus <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/IndianaAgCensus1920.csv"}\NormalTok{,}\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{))}
+\KeywordTok{rownames}\NormalTok{(AgCensus) <-}\StringTok{ }\NormalTok{AgCensus[,}\DecValTok{1}\NormalTok{]}
+\NormalTok{AgCensus <-}\StringTok{ }\NormalTok{AgCensus[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\CommentTok{# Glaciation}
+\NormalTok{Glacier <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/Glaciation.csv"}\NormalTok{,}\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{))}
+\CommentTok{#Glacier$Glaciation<- as.factor(Glacier$Glaciation)}
+\CommentTok{# Ecoregions}
+\NormalTok{EcoIII <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"IndianaCountiesEcoregionsIII.csv"}\NormalTok{,}\DataTypeTok{header=}\OtherTok{FALSE}\NormalTok{,}\DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\StringTok{"county"}\NormalTok{,}\StringTok{"EcoIII"}\NormalTok{)))}
+\CommentTok{#EcoIII$EcoIII <- as.factor(EcoIII$EcoIII)}
+\NormalTok{EcoIV <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"IndianaCountiesEcoregionsIV.csv"}\NormalTok{,}\DataTypeTok{header=}\OtherTok{FALSE}\NormalTok{,}\DataTypeTok{col.names =} \KeywordTok{c}\NormalTok{(}\StringTok{"county"}\NormalTok{,}\StringTok{"EcoIV"}\NormalTok{)))}
+\CommentTok{#EcoIV$EcoIV <- as.factor(EcoIV$EcoIV)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{popData <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(USCensus[}\OperatorTok{-}\DecValTok{1}\NormalTok{,],AgCensus[}\OperatorTok{-}\DecValTok{1}\NormalTok{,],EcoIII[}\OperatorTok{-}\DecValTok{1}\NormalTok{],Glacier[}\OperatorTok{-}\DecValTok{1}\NormalTok{],EcoIV[}\OperatorTok{-}\DecValTok{1}\NormalTok{],ctyspeciesscale}\OperatorTok{$}\NormalTok{latitude)}
+\NormalTok{samplingEffort <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{rowSums}\NormalTok{(compdatasitesp))}
+\KeywordTok{colnames}\NormalTok{(samplingEffort) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"sampEffort"}\NormalTok{)}
+\NormalTok{popData <-}\KeywordTok{cbind}\NormalTok{(popData,samplingEffort)}
+
+\NormalTok{popData}\OperatorTok{$}\NormalTok{pcImproved1920 <-}\StringTok{ }\NormalTok{popData}\OperatorTok{$}\NormalTok{ImprovedFarmAcres1920}\OperatorTok{/}\NormalTok{popData}\OperatorTok{$}\NormalTok{LandArea1920}
+\NormalTok{popData}\OperatorTok{$}\NormalTok{popDensity1920 <-}\StringTok{ }\NormalTok{popData}\OperatorTok{$}\NormalTok{X1920}\OperatorTok{/}\NormalTok{popData}\OperatorTok{$}\NormalTok{LandArea1920}
+
+
+\NormalTok{woodytreedeamssm3.db <-}\StringTok{ }\KeywordTok{vegdist}\NormalTok{(woodytreedeamssm3,}\DataTypeTok{method=}\StringTok{'bray'}\NormalTok{,}\DataTypeTok{binary =} \OtherTok{TRUE}\NormalTok{,}\DataTypeTok{upper=}\OtherTok{TRUE}\NormalTok{,}\DataTypeTok{diag=}\OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{woodytreedeamssm3.dbrda <-}\StringTok{ }\KeywordTok{dbrda}\NormalTok{(woodytreedeamssm3.db }\OperatorTok{~}\NormalTok{.,}\KeywordTok{as.data.frame}\NormalTok{(popData))}
+\KeywordTok{ordiplot}\NormalTok{(woodytreedeamssm3.dbrda)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-29-1.pdf}
+Cool, from this it is clear that the census population levels are
+minimally correlated, while the land area of counties and improved acres
+are more correlated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{woodytreedeamssm3.dbrda.mod0 <-}\KeywordTok{dbrda}\NormalTok{(woodytreedeamssm3.db}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\KeywordTok{as.data.frame}\NormalTok{(popData))}
+\CommentTok{# ordiplot(woodytreedeamssm3.dbrda.mod0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{woodytreedeamssm3.dbrda.mod1 <-}\StringTok{ }\KeywordTok{dbrda}\NormalTok{(woodytreedeamssm3.db}\OperatorTok{~}\NormalTok{., }\KeywordTok{as.data.frame}\NormalTok{(popData))}
+\CommentTok{# ordiplot(woodytreedeamssm3.dbrda.mod1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{woodytreedeamssm3.dbrda <-}\StringTok{ }\KeywordTok{ordiR2step}\NormalTok{(woodytreedeamssm3.dbrda.mod0,woodytreedeamssm3.dbrda.mod1,}\DataTypeTok{perm.max=}\DecValTok{600}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Step: R2.adj= 0 
+## Call: woodytreedeamssm3.db ~ 1 
+##  
+##                                R2.adjusted
+## <All variables>               2.704393e-01
+## + EcoIV                       2.121690e-01
+## + `ctyspeciesscale$latitude`  1.496147e-01
+## + EcoIII                      1.328686e-01
+## + sampEffort                  8.613621e-02
+## + Glaciation                  4.896001e-02
+## + pcImproved1920              2.455358e-02
+## + LandArea1920                1.344601e-02
+## + ImprovedFarmAcres1920       1.107929e-02
+## + X1910                       1.469237e-04
+## + X1900                       7.384027e-05
+## <none>                        0.000000e+00
+## + popDensity1920             -4.247067e-04
+## + X1920                      -5.000502e-04
+## + X1930                      -1.276819e-03
+## + X1940                      -1.385791e-03
+## + X1950                      -1.706708e-03
+## + X1980                      -1.773088e-03
+## + X1990                      -1.799462e-03
+## + X2000                      -1.809320e-03
+## + X1970                      -1.820925e-03
+## + X2010                      -1.923783e-03
+## + X1960                      -2.040614e-03
+## 
+##         Df    AIC      F Pr(>F)   
+## + EcoIV 15 253.11 2.6338  0.002 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.212169 
+## Call: woodytreedeamssm3.db ~ EcoIV 
+##  
+##                              R2.adjusted
+## <All variables>                0.2704393
+## + sampEffort                   0.2521396
+## + `ctyspeciesscale$latitude`   0.2439664
+## + EcoIII                       0.2202194
+## + LandArea1920                 0.2179541
+## + pcImproved1920               0.2168880
+## + Glaciation                   0.2166639
+## + ImprovedFarmAcres1920        0.2164552
+## + popDensity1920               0.2144771
+## + X1930                        0.2135119
+## + X1920                        0.2135019
+## + X1940                        0.2134368
+## + X1910                        0.2132456
+## + X1950                        0.2131270
+## + X1960                        0.2126860
+## + X1970                        0.2125884
+## + X1980                        0.2123188
+## + X1900                        0.2123107
+## <none>                         0.2121690
+## + X1990                        0.2120607
+## + X2000                        0.2117218
+## + X2010                        0.2112766
+## 
+##              Df   AIC      F Pr(>F)   
+## + sampEffort  1 249.1 5.0619  0.002 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.2521396 
+## Call: woodytreedeamssm3.db ~ EcoIV + sampEffort 
+##  
+##                              R2.adjusted
+## + `ctyspeciesscale$latitude`   0.2792725
+## <All variables>                0.2704393
+## + EcoIII                       0.2584725
+## + Glaciation                   0.2584129
+## + pcImproved1920               0.2559731
+## + ImprovedFarmAcres1920        0.2543502
+## + X1920                        0.2540457
+## + X1930                        0.2540226
+## + X1940                        0.2539492
+## + popDensity1920               0.2538165
+## + X1910                        0.2537197
+## + X1950                        0.2536528
+## + LandArea1920                 0.2532996
+## + X1960                        0.2532514
+## + X1970                        0.2531599
+## + X1980                        0.2528729
+## + X1900                        0.2527266
+## + X1990                        0.2525783
+## + X2000                        0.2521707
+## <none>                         0.2521396
+## + X2010                        0.2516470
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{woodytreedeamssm3.dbrda}\OperatorTok{$}\NormalTok{anova}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                  R2.adj Df    AIC      F Pr(>F)   
+## + EcoIV         0.21217 15 253.11 2.6338  0.002 **
+## + sampEffort    0.25214  1 249.10 5.0619  0.002 **
+## <All variables> 0.27044                           
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ordiplot}\NormalTok{(woodytreedeamssm3.dbrda)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-32-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{scores}\NormalTok{(woodytreedeamssm3.dbrda,}\DataTypeTok{display=}\StringTok{"bp"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                                dbRDA1      dbRDA2
+## EcoIVClayey High Lime Till Plains        -0.073673005 -0.24141639
+## EcoIVCrawford-Mammoth Cave Uplands        0.190718800  0.23687969
+## EcoIVGlaciated Wabash Lowlands           -0.004824015  0.16296218
+## EcoIVIllinois/Indiana Prairies            0.121656252 -0.17357749
+## EcoIVKnobs-Norman Upland                  0.096380018  0.22967507
+## EcoIVLoamy High Lime Till Plains          0.533951222 -0.27616555
+## EcoIVMiddle Tippecanoe Plains            -0.147465141 -0.13716061
+## EcoIVMitchell Plain                      -0.032371151  0.38972282
+## EcoIVNorthern Indiana Lake Country       -0.247057059 -0.02291336
+## EcoIVOuter Bluegrass                     -0.023983369 -0.05278488
+## EcoIVPre-Wisconsinan Drift Plains        -0.017121079  0.29999584
+## EcoIVSand Area                           -0.357919947 -0.21877629
+## EcoIVValparaiso-Wheaton Morainal Complex -0.294440810 -0.07852503
+## EcoIVWabash-Ohio Bottomlands             -0.065990098  0.53099514
+## EcoIVWhitewater Interlobate Area          0.191406390 -0.31195259
+## sampEffort                               -0.855506680  0.22843624
+## attr(,"const")
+## [1] 6.270969
+\end{verbatim}
+
+OOF only 4\% of variation explained by these the agricultural
+information we inputted, which probably isn't that bad given that we are
+talking about species diversity across an entire state. Let's see what
+happens with the information given by the spatial correlations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rs <-}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(woodytreedeamssm3)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(woodytreedeamssm3)}
+\NormalTok{woodytreedeamssm3.pcnmw <-}\StringTok{ }\KeywordTok{pcnm}\NormalTok{(}\KeywordTok{dist}\NormalTok{(indcounties4}\OperatorTok{$}\NormalTok{xy),}\DataTypeTok{w=}\NormalTok{rs,}\DataTypeTok{dist.ret =} \OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{woodytreedeamssm3.space <-}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{scores}\NormalTok{(woodytreedeamssm3.pcnmw))}
+\NormalTok{woodytreedeamssm3.pcnm.mod0 <-}\KeywordTok{dbrda}\NormalTok{(woodytreedeamssm3.db }\OperatorTok{~}\DecValTok{1}\NormalTok{,woodytreedeamssm3.space)}
+\NormalTok{woodytreedeamssm3.pcnm.mod1 <-}\KeywordTok{dbrda}\NormalTok{(woodytreedeamssm3.db }\OperatorTok{~}\NormalTok{.,woodytreedeamssm3.space)}
+\NormalTok{step.pcnm <-}\StringTok{ }\KeywordTok{ordiR2step}\NormalTok{(woodytreedeamssm3.pcnm.mod0, woodytreedeamssm3.pcnm.mod1,}\DataTypeTok{perm.max=}\DecValTok{500}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Step: R2.adj= 0 
+## Call: woodytreedeamssm3.db ~ 1 
+##  
+##                   R2.adjusted
+## <All variables>  1.575081e-02
+## + PCNM37         1.460080e-02
+## + PCNM44         1.427025e-02
+## + PCNM34         1.382675e-02
+## + PCNM52         1.378564e-02
+## + PCNM43         1.141820e-02
+## + PCNM56         9.621112e-03
+## + PCNM39         8.535197e-03
+## + PCNM40         8.477722e-03
+## + PCNM45         6.684049e-03
+## + PCNM51         6.526788e-03
+## + PCNM38         5.868984e-03
+## + PCNM46         5.242842e-03
+## + PCNM29         5.220529e-03
+## + PCNM55         4.400612e-03
+## + PCNM53         4.206932e-03
+## + PCNM42         3.864874e-03
+## + PCNM35         3.734065e-03
+## + PCNM13         3.647412e-03
+## + PCNM26         3.618724e-03
+## + PCNM58         3.463491e-03
+## + PCNM24         2.993461e-03
+## + PCNM36         2.823206e-03
+## + PCNM7          2.768001e-03
+## + PCNM33         2.135353e-03
+## + PCNM4          1.964552e-03
+## + PCNM54         1.769164e-03
+## + PCNM18         1.101828e-03
+## + PCNM41         6.778790e-04
+## + PCNM25         6.682848e-04
+## + PCNM5          6.299269e-04
+## + PCNM14         4.853354e-04
+## + PCNM32         4.295830e-04
+## + PCNM47         3.851783e-04
+## + PCNM19         2.305874e-04
+## <none>           0.000000e+00
+## + PCNM8         -4.775077e-06
+## + PCNM49        -3.629386e-04
+## + PCNM28        -6.818206e-04
+## + PCNM30        -8.440009e-04
+## + PCNM61        -1.051129e-03
+## + PCNM15        -2.082247e-03
+## + PCNM21        -2.555759e-03
+## + PCNM57        -2.643770e-03
+## + PCNM48        -2.742177e-03
+## + PCNM2         -2.765693e-03
+## + PCNM17        -2.849725e-03
+## + PCNM23        -3.129529e-03
+## + PCNM12        -3.232465e-03
+## + PCNM9         -3.436056e-03
+## + PCNM10        -3.489548e-03
+## + PCNM59        -3.547983e-03
+## + PCNM31        -3.601738e-03
+## + PCNM11        -4.109548e-03
+## + PCNM16        -4.454623e-03
+## + PCNM3         -4.711601e-03
+## + PCNM50        -5.083159e-03
+## + PCNM1         -5.391661e-03
+## + PCNM6         -5.447930e-03
+## + PCNM27        -5.472961e-03
+## + PCNM60        -5.591286e-03
+## + PCNM22        -5.698249e-03
+## + PCNM20        -8.945806e-03
+## 
+##          Df    AIC      F Pr(>F)   
+## + PCNM37  1 261.25 2.3484  0.006 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.0146008 
+## Call: woodytreedeamssm3.db ~ PCNM37 
+##  
+##                 R2.adjusted
+## + PCNM34        0.029213604
+## + PCNM52        0.028794590
+## + PCNM43        0.027194529
+## + PCNM44        0.026903848
+## + PCNM56        0.024400766
+## + PCNM39        0.023372632
+## + PCNM40        0.023133271
+## + PCNM51        0.020965514
+## + PCNM45        0.020918527
+## + PCNM38        0.020319526
+## + PCNM46        0.020072552
+## + PCNM29        0.020026619
+## + PCNM53        0.019547989
+## + PCNM55        0.019258724
+## + PCNM42        0.018793128
+## + PCNM26        0.018437059
+## + PCNM58        0.018296816
+## + PCNM35        0.018234076
+## + PCNM13        0.018113034
+## + PCNM7         0.017830495
+## + PCNM36        0.017783361
+## + PCNM24        0.017720583
+## + PCNM33        0.016879764
+## + PCNM4         0.016842338
+## + PCNM54        0.016528042
+## + PCNM18        0.016061538
+## <All variables> 0.015750809
+## + PCNM19        0.015395494
+## + PCNM25        0.015385900
+## + PCNM5         0.015377428
+## + PCNM41        0.015321110
+## + PCNM47        0.015169162
+## + PCNM14        0.014958198
+## + PCNM8         0.014943580
+## + PCNM49        0.014610033
+## <none>          0.014600795
+## + PCNM32        0.014253036
+## + PCNM30        0.014130498
+## + PCNM28        0.014113848
+## + PCNM61        0.013684475
+## + PCNM21        0.012953479
+## + PCNM17        0.012790617
+## + PCNM15        0.012490994
+## + PCNM2         0.012328773
+## + PCNM57        0.012098163
+## + PCNM48        0.011831303
+## + PCNM23        0.011617123
+## + PCNM12        0.011414245
+## + PCNM9         0.011412591
+## + PCNM10        0.011181216
+## + PCNM31        0.011105012
+## + PCNM59        0.010958159
+## + PCNM11        0.010563430
+## + PCNM16        0.010250713
+## + PCNM3         0.009921665
+## + PCNM50        0.009745287
+## + PCNM1         0.009315714
+## + PCNM6         0.009259286
+## + PCNM27        0.008915036
+## + PCNM22        0.008828865
+## + PCNM60        0.008779499
+## + PCNM20        0.005721943
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{step.pcnm}\OperatorTok{$}\NormalTok{anova}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   R2.adj Df    AIC      F Pr(>F)   
+## + PCNM37        0.014601  1 261.25 2.3484  0.006 **
+## <All variables> 0.015751                           
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+We'll this is interesting. It looks like space doesn't actually
+influence the presence of woody species that much. In the case of using
+BC, the results are that the null model is chosen, in the case of
+Sorensen's it is that only 1.4\% of variation is accounted for
+spatially, with the model of PCNM37.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{space.mod <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(}\OperatorTok{~}\NormalTok{PCNM37, }\KeywordTok{as.data.frame}\NormalTok{(woodytreedeamssm3.space))[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\NormalTok{farm.mod <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(}\OperatorTok{~}\NormalTok{pcImproved1920 }\OperatorTok{+}\StringTok{ }\NormalTok{ImprovedFarmAcres1920, }\KeywordTok{as.data.frame}\NormalTok{(popData))[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{woodytreedeamssm3.total.farm <-}\StringTok{ }\KeywordTok{dbrda}\NormalTok{(woodytreedeamssm3.db }\OperatorTok{~}\NormalTok{farm.mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{woodytreedeamssm3.varpart <-}\StringTok{ }\KeywordTok{varpart}\NormalTok{(woodytreedeamssm3.db,farm.mod,space.mod)}
+\NormalTok{woodytreedeamssm3.varpart}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Partition of squared Binary bray distance in dbRDA 
+## 
+## Call: varpart(Y = woodytreedeamssm3.db, X = farm.mod, space.mod)
+## 
+## Explanatory tables:
+## X1:  farm.mod
+## X2:  space.mod 
+## 
+## No. of explanatory tables: 2 
+## Total variation (SS): 16.994 
+## No. of observations: 92 
+## 
+## Partition table:
+##                      Df R.squared Adj.R.squared Testable
+## [a+b] = X1            2   0.06070       0.03959     TRUE
+## [b+c] = X2            1   0.02543       0.01460     TRUE
+## [a+b+c] = X1+X2       3   0.08341       0.05217     TRUE
+## Individual fractions                                    
+## [a] = X1|X2           2                 0.03756     TRUE
+## [b]                   0                 0.00202    FALSE
+## [c] = X2|X1           1                 0.01258     TRUE
+## [d] = Residuals                         0.94783    FALSE
+## ---
+## Use function 'dbrda' to test significance of fractions of interest
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(woodytreedeamssm3.varpart)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-38-1.pdf}
+
+\hypertarget{repeat-analysis-for-all-species}{%
+\subsubsection{Repeat analysis for all
+species}\label{repeat-analysis-for-all-species}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{compdatasitesp.db <-}\StringTok{ }\KeywordTok{vegdist}\NormalTok{(compdatasitesp,}\DataTypeTok{method=}\StringTok{'bray'}\NormalTok{,}\DataTypeTok{binary =} \OtherTok{TRUE}\NormalTok{,}\DataTypeTok{upper=}\OtherTok{TRUE}\NormalTok{,}\DataTypeTok{diag=}\OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{compdatasitesp.dbrda <-}\StringTok{ }\KeywordTok{dbrda}\NormalTok{(compdatasitesp.db }\OperatorTok{~}\NormalTok{.,}\KeywordTok{as.data.frame}\NormalTok{(popData))}
+\KeywordTok{ordiplot}\NormalTok{(compdatasitesp.dbrda)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-39-1.pdf}
+Cool, from this it is clear that the census population levels are
+minimally correlated, while the land area of counties and improved acres
+are more correlated.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{compdatasitesp.dbrda.mod0 <-}\KeywordTok{dbrda}\NormalTok{(compdatasitesp.db}\OperatorTok{~}\DecValTok{1}\NormalTok{,}\KeywordTok{as.data.frame}\NormalTok{(popData))}
+\CommentTok{# ordiplot(compdatasitesp.dbrda.mod0)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{compdatasitesp.dbrda.mod1 <-}\StringTok{ }\KeywordTok{dbrda}\NormalTok{(compdatasitesp.db}\OperatorTok{~}\NormalTok{., }\KeywordTok{as.data.frame}\NormalTok{(popData))}
+\CommentTok{# ordiplot(compdatasitesp.dbrda.mod1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{compdatasitesp.dbrda <-}\StringTok{ }\KeywordTok{ordiR2step}\NormalTok{(compdatasitesp.dbrda.mod0,compdatasitesp.dbrda.mod1,}\DataTypeTok{perm.max=}\DecValTok{200}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Step: R2.adj= 0 
+## Call: compdatasitesp.db ~ 1 
+##  
+##                                R2.adjusted
+## <All variables>               0.3151507393
+## + EcoIV                       0.2302854482
+## + EcoIII                      0.1952076711
+## + `ctyspeciesscale$latitude`  0.1736210208
+## + sampEffort                  0.1012821375
+## + Glaciation                  0.0730063407
+## + pcImproved1920              0.0412544203
+## + ImprovedFarmAcres1920       0.0203855795
+## + LandArea1920                0.0191080948
+## + X1900                       0.0003941725
+## <none>                        0.0000000000
+## + popDensity1920             -0.0002290714
+## + X2010                      -0.0008591065
+## + X1910                      -0.0012692149
+## + X2000                      -0.0014150218
+## + X1990                      -0.0018920028
+## + X1980                      -0.0021307636
+## + X1920                      -0.0021639087
+## + X1970                      -0.0024142605
+## + X1960                      -0.0028397894
+## + X1940                      -0.0029938178
+## + X1950                      -0.0030254171
+## + X1930                      -0.0031379804
+## 
+##         Df    AIC     F Pr(>F)   
+## + EcoIV 15 262.36 2.815  0.002 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.2302854 
+## Call: compdatasitesp.db ~ EcoIV 
+##  
+##                              R2.adjusted
+## <All variables>                0.3151507
+## + sampEffort                   0.2806322
+## + `ctyspeciesscale$latitude`   0.2626344
+## + EcoIII                       0.2539459
+## + Glaciation                   0.2384513
+## + LandArea1920                 0.2383871
+## + pcImproved1920               0.2381939
+## + ImprovedFarmAcres1920        0.2341728
+## + popDensity1920               0.2307655
+## <none>                         0.2302854
+## + X1900                        0.2295894
+## + X1910                        0.2294499
+## + X2010                        0.2293265
+## + X1920                        0.2292334
+## + X2000                        0.2290489
+## + X1990                        0.2288898
+## + X1940                        0.2286835
+## + X1980                        0.2286597
+## + X1950                        0.2286202
+## + X1930                        0.2286004
+## + X1970                        0.2285730
+## + X1960                        0.2284029
+## 
+##              Df    AIC      F Pr(>F)   
+## + sampEffort  1 256.92 6.3191  0.002 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.2806322 
+## Call: compdatasitesp.db ~ EcoIV + sampEffort 
+##  
+##                              R2.adjusted
+## <All variables>                0.3151507
+## + `ctyspeciesscale$latitude`   0.2989613
+## + EcoIII                       0.2892776
+## + pcImproved1920               0.2881481
+## + Glaciation                   0.2880768
+## + LandArea1920                 0.2826758
+## + ImprovedFarmAcres1920        0.2811984
+## + popDensity1920               0.2808578
+## <none>                         0.2806322
+## + X1900                        0.2805851
+## + X1910                        0.2804491
+## + X2010                        0.2803767
+## + X1920                        0.2802533
+## + X2000                        0.2801002
+## + X1990                        0.2799451
+## + X1980                        0.2797223
+## + X1940                        0.2796786
+## + X1970                        0.2796373
+## + X1950                        0.2796263
+## + X1930                        0.2795933
+## + X1960                        0.2794489
+## 
+##                              Df    AIC      F Pr(>F)   
+## + `ctyspeciesscale$latitude`  2 256.06 1.9805  0.002 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.2989613 
+## Call: compdatasitesp.db ~ EcoIV + sampEffort + `ctyspeciesscale$latitude` 
+##  
+##                         R2.adjusted
+## <All variables>           0.3151507
+## + pcImproved1920          0.3079486
+## + Glaciation              0.3021881
+## + LandArea1920            0.3015751
+## + ImprovedFarmAcres1920   0.2997365
+## + EcoIII                  0.2997113
+## + popDensity1920          0.2996937
+## + X2010                   0.2995529
+## + X1900                   0.2994155
+## + X1910                   0.2993246
+## + X2000                   0.2992344
+## + X1920                   0.2991353
+## + X1990                   0.2990172
+## <none>                    0.2989613
+## + X1980                   0.2987402
+## + X1970                   0.2985846
+## + X1940                   0.2985824
+## + X1950                   0.2985372
+## + X1930                   0.2985190
+## + X1960                   0.2983486
+## 
+##                  Df   AIC     F Pr(>F)   
+## + pcImproved1920  1 255.6 1.948  0.002 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.3079486 
+## Call: compdatasitesp.db ~ EcoIV + sampEffort + `ctyspeciesscale$latitude` +      pcImproved1920 
+##  
+##                         R2.adjusted
+## <All variables>           0.3151507
+## + ImprovedFarmAcres1920   0.3109468
+## + LandArea1920            0.3109073
+## + popDensity1920          0.3092621
+## + EcoIII                  0.3089603
+## + X2010                   0.3088300
+## + X1910                   0.3086417
+## + X1900                   0.3086148
+## + X1920                   0.3085693
+## + X2000                   0.3085426
+## + X1990                   0.3083677
+## + X1980                   0.3081214
+## + X1940                   0.3080635
+## + X1970                   0.3080257
+## + X1950                   0.3080195
+## + X1930                   0.3079875
+## <none>                    0.3079486
+## + X1960                   0.3078328
+## + Glaciation              0.3068888
+## 
+##                         Df    AIC      F Pr(>F)  
+## + ImprovedFarmAcres1920  1 255.91 1.3133   0.05 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.3109468 
+## Call: compdatasitesp.db ~ EcoIV + sampEffort + `ctyspeciesscale$latitude` +      pcImproved1920 + ImprovedFarmAcres1920 
+##  
+##                  R2.adjusted
+## <All variables>    0.3151507
+## + X2010            0.3125910
+## + X2000            0.3123465
+## + popDensity1920   0.3123307
+## + X1910            0.3122844
+## + X1920            0.3122773
+## + X1990            0.3121901
+## + X1900            0.3120710
+## + X1980            0.3120077
+## + EcoIII           0.3119150
+## + X1970            0.3118587
+## + X1940            0.3118004
+## + X1930            0.3117607
+## + X1950            0.3117278
+## + X1960            0.3116260
+## <none>             0.3109468
+## + LandArea1920     0.3105628
+## + Glaciation       0.3093596
+## 
+##         Df    AIC      F Pr(>F)
+## + X2010  1 256.39 1.1698   0.26
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{compdatasitesp.dbrda}\OperatorTok{$}\NormalTok{anova}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                               R2.adj Df    AIC      F Pr(>F)   
+## + EcoIV                      0.23028 15 262.36 2.8150  0.002 **
+## + sampEffort                 0.28063  1 256.92 6.3191  0.002 **
+## + `ctyspeciesscale$latitude` 0.29896  2 256.06 1.9805  0.002 **
+## + pcImproved1920             0.30795  1 255.60 1.9480  0.002 **
+## + ImprovedFarmAcres1920      0.31095  1 255.91 1.3133  0.050 * 
+## <All variables>              0.31515                           
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ordiplot}\NormalTok{(compdatasitesp.dbrda)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-42-1.pdf}
+
+This is actually better with a 10\% from these two variables
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rs <-}\StringTok{ }\KeywordTok{rowSums}\NormalTok{(compdatasitesp)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(compdatasitesp)}
+\NormalTok{compdatasitesp.pcnmw <-}\StringTok{ }\KeywordTok{pcnm}\NormalTok{(}\KeywordTok{dist}\NormalTok{(indcounties4}\OperatorTok{$}\NormalTok{xy),}\DataTypeTok{w=}\NormalTok{rs,}\DataTypeTok{dist.ret =} \OtherTok{TRUE}\NormalTok{)}
+
+\NormalTok{compdatasitesp.space <-}\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{scores}\NormalTok{(compdatasitesp.pcnmw))}
+\NormalTok{compdatasitesp.pcnm.mod0 <-}\KeywordTok{dbrda}\NormalTok{(compdatasitesp.db }\OperatorTok{~}\DecValTok{1}\NormalTok{,compdatasitesp.space)}
+\NormalTok{compdatasitesp.pcnm.mod1 <-}\KeywordTok{dbrda}\NormalTok{(compdatasitesp.db }\OperatorTok{~}\NormalTok{.,compdatasitesp.space)}
+\NormalTok{step.pcnm <-}\StringTok{ }\KeywordTok{ordiR2step}\NormalTok{(compdatasitesp.pcnm.mod0, compdatasitesp.pcnm.mod1,}\DataTypeTok{perm.max=}\DecValTok{500}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Step: R2.adj= 0 
+## Call: compdatasitesp.db ~ 1 
+##  
+##                   R2.adjusted
+## <All variables>  2.345528e-02
+## + PCNM53         1.237248e-02
+## + PCNM7          1.217106e-02
+## + PCNM52         1.133330e-02
+## + PCNM40         8.595785e-03
+## + PCNM50         6.620612e-03
+## + PCNM45         5.248071e-03
+## + PCNM29         5.073930e-03
+## + PCNM33         4.849425e-03
+## + PCNM46         4.462560e-03
+## + PCNM20         3.411027e-03
+## + PCNM37         3.272998e-03
+## + PCNM42         2.815825e-03
+## + PCNM41         2.499659e-03
+## + PCNM2          2.489840e-03
+## + PCNM55         2.423176e-03
+## + PCNM49         2.255920e-03
+## + PCNM57         2.194791e-03
+## + PCNM43         2.167195e-03
+## + PCNM31         2.100845e-03
+## + PCNM44         2.034557e-03
+## + PCNM27         1.570521e-03
+## + PCNM38         1.508059e-03
+## + PCNM59         1.465510e-03
+## + PCNM10         1.438199e-03
+## + PCNM19         1.235930e-03
+## + PCNM54         1.050425e-03
+## + PCNM34         8.989576e-04
+## + PCNM25         6.898663e-04
+## + PCNM47         3.125497e-04
+## + PCNM39         3.111183e-04
+## <none>           0.000000e+00
+## + PCNM61        -8.317531e-05
+## + PCNM23        -1.140570e-04
+## + PCNM28        -1.976430e-04
+## + PCNM18        -2.444915e-04
+## + PCNM56        -4.300297e-04
+## + PCNM48        -4.697309e-04
+## + PCNM30        -5.205693e-04
+## + PCNM32        -6.082432e-04
+## + PCNM35        -6.170726e-04
+## + PCNM51        -6.654117e-04
+## + PCNM17        -1.188689e-03
+## + PCNM26        -1.292155e-03
+## + PCNM4         -1.538095e-03
+## + PCNM36        -1.605302e-03
+## + PCNM24        -1.850222e-03
+## + PCNM12        -1.968083e-03
+## + PCNM13        -2.243513e-03
+## + PCNM15        -2.428115e-03
+## + PCNM16        -2.557032e-03
+## + PCNM58        -2.835485e-03
+## + PCNM11        -2.868988e-03
+## + PCNM1         -3.062991e-03
+## + PCNM60        -3.279015e-03
+## + PCNM6         -3.332669e-03
+## + PCNM21        -3.395564e-03
+## + PCNM22        -3.640774e-03
+## + PCNM9         -4.018879e-03
+## + PCNM8         -4.370016e-03
+## + PCNM5         -4.782621e-03
+## + PCNM14        -4.821995e-03
+## + PCNM3         -5.139794e-03
+## 
+##          Df    AIC    F Pr(>F)   
+## + PCNM53  1 272.85 2.14  0.002 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Step: R2.adj= 0.01237248 
+## Call: compdatasitesp.db ~ PCNM53 
+##  
+##                 R2.adjusted
+## + PCNM7         0.025271742
+## + PCNM52        0.024979067
+## <All variables> 0.023455279
+## + PCNM40        0.019748276
+## + PCNM50        0.019584894
+## + PCNM29        0.017693227
+## + PCNM45        0.017176138
+## + PCNM46        0.017164231
+## + PCNM33        0.016914427
+## + PCNM20        0.016066808
+## + PCNM42        0.015364928
+## + PCNM37        0.015131728
+## + PCNM49        0.014813034
+## + PCNM41        0.014805656
+## + PCNM57        0.014745575
+## + PCNM43        0.014711604
+## + PCNM2         0.014528370
+## + PCNM31        0.014469921
+## + PCNM59        0.014084489
+## + PCNM19        0.014043553
+## + PCNM38        0.013994403
+## + PCNM44        0.013994250
+## + PCNM27        0.013919297
+## + PCNM55        0.013878204
+## + PCNM54        0.013575460
+## + PCNM25        0.013447943
+## + PCNM34        0.013416574
+## + PCNM10        0.013075877
+## + PCNM39        0.012732636
+## + PCNM47        0.012689556
+## + PCNM23        0.012579518
+## + PCNM28        0.012394978
+## <none>          0.012372477
+## + PCNM61        0.012336621
+## + PCNM18        0.012278866
+## + PCNM56        0.012041101
+## + PCNM48        0.012016830
+## + PCNM35        0.012009882
+## + PCNM30        0.011737262
+## + PCNM32        0.011725397
+## + PCNM26        0.011451000
+## + PCNM17        0.011260488
+## + PCNM51        0.011233284
+## + PCNM4         0.010989734
+## + PCNM36        0.010837356
+## + PCNM12        0.010824157
+## + PCNM24        0.010620070
+## + PCNM13        0.009961452
+## + PCNM16        0.009921389
+## + PCNM15        0.009919836
+## + PCNM58        0.009780332
+## + PCNM11        0.009609459
+## + PCNM1         0.009407457
+## + PCNM60        0.009203686
+## + PCNM6         0.009201212
+## + PCNM21        0.008966865
+## + PCNM22        0.008877135
+## + PCNM9         0.008333733
+## + PCNM8         0.008036499
+## + PCNM5         0.007726867
+## + PCNM14        0.007641260
+## + PCNM3         0.007337265
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{step.pcnm}\OperatorTok{$}\NormalTok{anova}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                   R2.adj Df    AIC    F Pr(>F)   
+## + PCNM53        0.012372  1 272.85 2.14  0.002 **
+## <All variables> 0.023455                         
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+\#need to change
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{space.mod <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(}\OperatorTok{~}\NormalTok{PCNM53, }\KeywordTok{as.data.frame}\NormalTok{(compdatasitesp.space))[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\NormalTok{farm.mod <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(}\OperatorTok{~}\NormalTok{pcImproved1920 }\OperatorTok{+}\StringTok{ }\NormalTok{ImprovedFarmAcres1920, }\KeywordTok{as.data.frame}\NormalTok{(popData))[,}\OperatorTok{-}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{compdatasitesp.total.farm <-}\StringTok{ }\KeywordTok{dbrda}\NormalTok{(compdatasitesp.db }\OperatorTok{~}\NormalTok{farm.mod)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{compdatasitesp.varpart <-}\StringTok{ }\KeywordTok{varpart}\NormalTok{(compdatasitesp.db,farm.mod,space.mod)}
+\NormalTok{compdatasitesp.varpart}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Partition of squared Binary bray distance in dbRDA 
+## 
+## Call: varpart(Y = compdatasitesp.db, X = farm.mod, space.mod)
+## 
+## Explanatory tables:
+## X1:  farm.mod
+## X2:  space.mod 
+## 
+## No. of explanatory tables: 2 
+## Total variation (SS): 19.235 
+## No. of observations: 92 
+## 
+## Partition table:
+##                      Df R.squared Adj.R.squared Testable
+## [a+b] = X1            2   0.08305       0.06245     TRUE
+## [b+c] = X2            1   0.02323       0.01237     TRUE
+## [a+b+c] = X1+X2       3   0.10188       0.07126     TRUE
+## Individual fractions                                    
+## [a] = X1|X2           2                 0.05889     TRUE
+## [b]                   0                 0.00356    FALSE
+## [c] = X2|X1           1                 0.00882     TRUE
+## [d] = Residuals                         0.92874    FALSE
+## ---
+## Use function 'dbrda' to test significance of fractions of interest
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(compdatasitesp.varpart)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-47-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{popData}\OperatorTok{$}\NormalTok{county <-}\StringTok{ }\KeywordTok{rownames}\NormalTok{(popData)}
+\NormalTok{popData[}\StringTok{"La Porte"}\NormalTok{,}\StringTok{"county"}\NormalTok{]=}\StringTok{"LaPorte"}
+\NormalTok{map <-}\StringTok{ }\KeywordTok{merge}\NormalTok{(indcounties3,}
+\NormalTok{                     popData,}
+                     \DataTypeTok{by.x =} \StringTok{"county"}\NormalTok{,}
+                     \DataTypeTok{by.y =} \StringTok{"county"}\NormalTok{)}
+\CommentTok{# Plot}
+\KeywordTok{tm_shape}\NormalTok{(map, }\DataTypeTok{projection=}\StringTok{"+init=epsg:4326"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{tm_polygons}\NormalTok{(}\StringTok{"pcImproved1920"}\NormalTok{, }\DataTypeTok{border.col =} \StringTok{"grey30"}\NormalTok{, }\DataTypeTok{title=}\StringTok{""}\NormalTok{) }\OperatorTok{+}
+\KeywordTok{tm_layout}\NormalTok{(}\DataTypeTok{title=}\StringTok{"Percent Improved Agricultural Land"}\NormalTok{, }
+          \DataTypeTok{title.size =} \DecValTok{1}\NormalTok{, }
+          \DataTypeTok{title.position =} \KeywordTok{c}\NormalTok{(}\StringTok{"center"}\NormalTok{, }\StringTok{"top"}\NormalTok{), }
+          \DataTypeTok{legend.text.size=}\NormalTok{.}\DecValTok{6}\NormalTok{, }\DataTypeTok{bg.color =} \StringTok{"light blue"}\NormalTok{, }\DataTypeTok{inner.margins=}\KeywordTok{c}\NormalTok{(.}\DecValTok{1}\NormalTok{,.}\DecValTok{1}\NormalTok{,.}\DecValTok{2}\NormalTok{,.}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{TeamProject5_files/figure-latex/unnamed-chunk-48-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tm_legend}\NormalTok{(}\DataTypeTok{position =} \KeywordTok{c}\NormalTok{(}\StringTok{"right"}\NormalTok{, }\StringTok{"bottom"}\NormalTok{), }
+    \DataTypeTok{frame =} \OtherTok{TRUE}\NormalTok{,}
+    \DataTypeTok{bg.color=}\StringTok{"lightblue"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $tm_layout
+## $tm_layout$legend.position
+## [1] "right"  "bottom"
+## 
+## $tm_layout$legend.frame
+## [1] TRUE
+## 
+## $tm_layout$legend.bg.color
+## [1] "lightblue"
+## 
+## $tm_layout$style
+## [1] NA
+## 
+## 
+## attr(,"class")
+## [1] "tm"
+\end{verbatim}
+
+\end{document}
